@@ -1,0 +1,14 @@
+{
+  "name": "@dash/root",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  },
+  "scripts": {
+    "dev": "lerna exec --scope @dash/app yarn dev",
+    "build": "lerna exec --scope @dash/app yarn build"
+  }
+}
