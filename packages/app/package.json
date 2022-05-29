@@ -2,6 +2,9 @@
   "name": "@dash/app",
   "version": "0.0.1",
   "private": true,
+  "dependencies": {
+    "@dash/material": "^0.0.1"
+  },
   "scripts": {
     "dev": "craco start",
     "start": "react-scripts start",
