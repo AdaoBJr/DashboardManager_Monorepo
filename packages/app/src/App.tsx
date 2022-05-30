@@ -1,8 +1,7 @@
 import React from 'react';
-import { Button } from '@dash/material';
 
 const App: React.FC = () => {
-  return <Button>Clique Aqui!!</Button>;
+  return <div>STARTING</div>;
 };
 
 export default App;
