@@ -1,5 +1,5 @@
 {
-  "name": "@dash/material",
+  "name": "@dash/core",
   "version": "0.0.1",
   "main": "index.ts",
   "license": "MIT"
