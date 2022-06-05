@@ -2,7 +2,7 @@ const path = require('path');
 const { getLoader, loaderByName } = require('@craco/craco');
 
 const packages = [];
-packages.push(path.join(__dirname, '..', 'user'));
+packages.push(path.join(__dirname, '..', 'module-customer'));
 
 module.exports = {
   webpack: {

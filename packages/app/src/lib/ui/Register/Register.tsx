@@ -1,5 +1,5 @@
 import React from 'react';
-import { CreateAccount } from '@dash/user';
+import { CreateAccount } from '@dash/module-customer';
 import { ReactFC } from 'types/interface';
 
 export const Register: React.FC<ReactFC> = () => {

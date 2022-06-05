@@ -2,9 +2,6 @@
   "name": "@dash/app",
   "version": "0.0.1",
   "private": true,
-  "dependencies": {
-    "@dash/user": "^0.0.1"
-  },
   "scripts": {
     "dev": "craco start",
     "start": "react-scripts start",
@@ -29,5 +26,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "dependencies": {
+    "@dash/module-customer": "^0.0.1"
   }
 }

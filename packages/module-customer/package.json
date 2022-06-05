@@ -1,5 +1,5 @@
 {
-  "name": "@dash/user",
+  "name": "@dash/module-customer",
   "version": "0.0.1",
   "main": "index.ts",
   "license": "MIT"
