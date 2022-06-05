@@ -6,6 +6,7 @@
   ],
   "scripts": {
     "dev": "lerna exec --scope @dash/app yarn dev",
+    "start": "lerna exec --scope @dash/app yarn start",
     "build": "lerna exec --scope @dash/app yarn build"
   },
   "dependencies": {
