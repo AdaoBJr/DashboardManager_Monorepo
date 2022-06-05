@@ -1,11 +1,11 @@
 import React from 'react';
-import { CreateAccount } from '@dash/module-customer';
 import { ReactFC } from 'types/interface';
+import { CreateAccountModule } from '@dash/module-customer';
 
-export const Register: React.FC<ReactFC> = () => {
+export const CreateAccount: React.FC<ReactFC> = () => {
   return (
     <div style={{ display: 'grid', placeItems: 'center' }}>
-      <CreateAccount />
+      <CreateAccountModule />
     </div>
   );
 };

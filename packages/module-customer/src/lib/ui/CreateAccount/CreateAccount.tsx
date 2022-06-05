@@ -6,7 +6,7 @@ interface CreateAccountProps extends ReactFC {
   sx?: SxProps<Theme>;
 }
 
-export const CreateAccount: React.FC<CreateAccountProps> = ({ sx }) => {
+export const CreateAccountModule: React.FC<CreateAccountProps> = ({ sx }) => {
   const response = { warning: false, loading: false };
   return (
     <>
