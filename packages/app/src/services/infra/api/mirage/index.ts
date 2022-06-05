@@ -6,34 +6,41 @@ import { Customer } from 'types/interface';
 export const makeServer = () => {
   const server = createServer({
     models: {
-      customer: Model.extend<Partial<Customer>>({}),
+      customer: Model.extend<Partial<Customer>>({})
     },
 
-    factories: {
-      customer: Factory.extend({
-        firstname(i) {
-          return faker.name.firstName();
-        },
-        lastname(i) {
-          return faker.name.lastName();
-        },
-        email() {
-          return faker.internet.email().toLowerCase();
-        },
-      }),
-    },
+    // factories: {
+    //   customer: Factory.extend({
+    //     firstname(i) {
+    //       return faker.name.firstName();
+    //     },
+    //     lastname(i) {
+    //       return faker.name.lastName();
+    //     },
+    //     email() {
+    //       return faker.internet.email().toLowerCase();
+    //     },
+    //   }),
+    // },
 
-    seeds(server) {
-      server.createList('customer', 10);
-    },
+    // seeds(server) {
+    //   server.createList('customer', 10);
+    // },
 
     routes() {
       this.namespace = 'api';
       this.timing = 750;
 
       this.get('/customers');
-      this.post('/customers');
-    },
+      this.post('/customers', (schema, request) => {
+        const req = JSON.parse(request.requestBody);
+
+        return schema.create('customer', req);
+      });
+      this.delete('/customers', (schema): any => {
+        return schema.db.dump();
+      });
+    }
   });
 
   return server;
