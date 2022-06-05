@@ -1,13 +1,7 @@
-import { createServer, Factory, Model } from 'miragejs';
 import * as faker from 'faker';
+import { createServer, Factory, Model } from 'miragejs';
 
-export interface Customer {
-  firstname: string;
-  lastname: string;
-  email: string;
-  password: string;
-  created_at: string;
-}
+import { Customer } from 'types/interface';
 
 export const makeServer = () => {
   const server = createServer({
@@ -18,16 +12,13 @@ export const makeServer = () => {
     factories: {
       customer: Factory.extend({
         firstname(i) {
-          return `Firstname ${i + 1}`;
+          return faker.name.firstName();
         },
         lastname(i) {
-          return `Lastname ${i + 1}`;
+          return faker.name.lastName();
         },
         email() {
           return faker.internet.email().toLowerCase();
-        },
-        createdAt() {
-          return faker.date.recent(10);
         },
       }),
     },
@@ -40,8 +31,8 @@ export const makeServer = () => {
       this.namespace = 'api';
       this.timing = 750;
 
-      this.get('/customer');
-      this.post('/customer');
+      this.get('/customers');
+      this.post('/customers');
     },
   });
 
