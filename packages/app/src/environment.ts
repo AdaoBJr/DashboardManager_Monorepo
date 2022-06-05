@@ -4,7 +4,7 @@ export interface Environment {
 
 const ENV_PROD = 'Ambiente a implementar';
 
-export const getEnv = (env = process.env.NODE_ENV): Environment => {
+export const getEnv = (env = process.env.REACT_APP_NODE_ENV): Environment => {
   switch (env) {
     case 'production':
       return {
