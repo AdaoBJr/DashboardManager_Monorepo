@@ -3,6 +3,6 @@ import { getEnv } from 'environment';
 
 const env = getEnv();
 
-export const api = axios.create({
-  baseURL: env.URL_BFF_GO_DASH,
+export const apiRest = axios.create({
+  baseURL: env.URL_BFF_GO_DASH
 });
