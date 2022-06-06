@@ -1,10 +1,10 @@
 import React from 'react';
 import { ReactFC } from 'types/interface';
-import { useCustomer } from 'services/gql';
+import { useCustomerRequests } from 'services/gql';
 import { CreateAccountModule } from '@dash/module-customer';
 
 export const CreateAccount: React.FC<ReactFC> = () => {
-  const { createCustomer } = useCustomer();
+  const { createCustomer } = useCustomerRequests();
   const data = {
     firstname: 'Adam1',
     lastname: 'Jr',

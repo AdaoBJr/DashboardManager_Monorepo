@@ -1,2 +1,2 @@
 export * from './gql';
-export * from './useCustomer';
+export * from './useCustomerRequests';

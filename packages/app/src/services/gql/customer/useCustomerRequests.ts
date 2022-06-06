@@ -7,7 +7,7 @@ import { Customer, CreateCustomerData } from 'types/interface';
 const db = 'customer';
 const route = 'customers';
 
-export const useCustomer = () => {
+export const useCustomerRequests = () => {
   const createCustomer = ({ data }: CreateCustomerData) => {
     const gql = createCustomerGQL({ data });
 
