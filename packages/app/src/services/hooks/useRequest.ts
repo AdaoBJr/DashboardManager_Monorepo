@@ -1,8 +1,24 @@
-import { api } from 'services/infra';
+import { api, apiRest } from 'services/infra';
+
+interface Gql {
+  query: string;
+  variables: string | any;
+}
+
+interface Auth {
+  authorization: string;
+}
+
+interface GraphQLProps {
+  route?: string;
+  gql: Gql;
+  auth?: Auth;
+}
+
 export const useRequest = () => {
   const get = async (url: string) => {
     try {
-      return await api.get(url);
+      return await apiRest.get(url);
     } catch (error) {
       throw new Error(error as string);
     }
@@ -10,7 +26,7 @@ export const useRequest = () => {
 
   const post = async (url: string, data: {}) => {
     try {
-      return await api.post(url, data);
+      return await apiRest.post(url, data);
     } catch (error) {
       throw new Error(error as string);
     }
@@ -18,7 +34,7 @@ export const useRequest = () => {
 
   const put = async (url: string, data: {}) => {
     try {
-      return await api.put(url, data);
+      return await apiRest.put(url, data);
     } catch (error) {
       throw new Error(error as string);
     }
@@ -26,7 +42,7 @@ export const useRequest = () => {
 
   const del = async (url: string, data?: {}) => {
     try {
-      return await api.delete(url, data);
+      return await apiRest.delete(url, data);
     } catch (error) {
       throw new Error(error as string);
     }
@@ -34,11 +50,17 @@ export const useRequest = () => {
 
   const graphql = async (url: string, data?: { query: {}; variables: {} }) => {
     try {
-      return await api.post(url, data);
+      return await apiRest.post(url, data);
     } catch (error) {
       throw new Error(error as string);
     }
   };
+
+  // const graphql = async ({ route, gql, auth }: GraphQLProps) => {
+  //   const { query, variables } = gql;
+  //   const headers = auth && { authorization: `Bearer ${auth.authorization}` };
+  //   return Object.values(await api(route).request(query, variables, headers))[0];
+  // };
 
   return { get, post, put, del, graphql };
 };
