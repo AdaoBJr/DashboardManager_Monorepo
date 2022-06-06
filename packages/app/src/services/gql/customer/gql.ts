@@ -1,10 +1,6 @@
 import { generateMutationOp } from '../generated';
-import { InputDataCreateAccount } from 'types/interface';
+import { CreateCustomerData } from 'types/interface';
 // import { InputDataSignIn } from '../../lib/services/talons/useSignIn';
-
-interface CreateCustomerData {
-  data: InputDataCreateAccount;
-}
 
 // interface SignInData {
 //   data: InputDataSignIn;
