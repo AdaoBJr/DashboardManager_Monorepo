@@ -1,14 +1,10 @@
 import React from 'react';
-import { useQuery } from 'react-query';
-import { Customer, ReactFC } from 'types/interface';
+import { ReactFC } from 'types/interface';
+import { useCustomer } from 'services/gql';
 import { CreateAccountModule } from '@dash/module-customer';
 
-import { useRequest } from 'services/hooks';
-import { createCustomerGQL } from 'gql/customer';
-
 export const CreateAccount: React.FC<ReactFC> = () => {
-  const request = useRequest();
-
+  const { createCustomer } = useCustomer();
   const data = {
     firstname: 'Adam1',
     lastname: 'Jr',
@@ -21,12 +17,8 @@ export const CreateAccount: React.FC<ReactFC> = () => {
     telephone: '99225-2201',
     subscribe: false
   };
-  const { query, variables } = createCustomerGQL({ data });
 
-  const { data: response } = useQuery<Customer[]>('customers', async () => {
-    const response = await request.graphql('customers', { query, variables });
-    return response.data.customer.variables.v1;
-  });
+  const response = createCustomer({ data });
 
   console.log('response', response);
 
