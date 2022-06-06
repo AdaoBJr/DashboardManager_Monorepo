@@ -1,13 +1,5 @@
 import { api, apiRest } from 'services/infra';
-
-interface Gql {
-  query: string;
-  variables: string | any;
-}
-
-interface Auth {
-  authorization: string;
-}
+import { Auth, Gql } from 'types/interface';
 
 interface GraphQLProps {
   route?: string;
