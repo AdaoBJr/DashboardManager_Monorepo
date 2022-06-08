@@ -1,8 +1,8 @@
 import React from 'react';
-import { Grid } from '@mui/material';
 import { ReactFC } from 'types/interface';
 import { useCustomerRequests } from 'services/gql';
 import { CreateAccountModule } from '@dash/module-customer';
+import { BoxContainer, PaperWrapper } from './styles';
 
 export const CreateAccount: React.FC<ReactFC> = () => {
   const { createCustomer } = useCustomerRequests();
@@ -24,10 +24,15 @@ export const CreateAccount: React.FC<ReactFC> = () => {
   console.log('response', response);
 
   return (
-    <div style={{ display: 'grid', placeItems: 'center' }}>
-      <Grid container>
-        <CreateAccountModule />
-      </Grid>
-    </div>
+    <BoxContainer>
+      <PaperWrapper>
+        <CreateAccountModule
+          container={{ spacing: 1 }}
+          input={{
+            sx: { width: '100%', '& .MuiInputBase-input': { padding: '10px 12px' } }
+          }}
+        />
+      </PaperWrapper>
+    </BoxContainer>
   );
 };
