@@ -1,99 +1,109 @@
 import React from 'react';
-import { Grid, SxProps, TextField, Theme } from '@mui/material';
+import { Grid, GridProps, TextField, TextFieldProps, Theme } from '@mui/material';
 import { ReactFC } from 'types/interface';
 
 interface CreateAccountProps extends ReactFC {
-  sx?: SxProps<Theme>;
-  variant?: 'outlined' | 'filled' | 'standard';
+  container?: GridProps;
+  item?: GridProps;
+  input?: TextFieldProps;
 }
 
-export const CreateAccountModule: React.FC<CreateAccountProps> = ({ sx, variant }) => {
+export const CreateAccountModule: React.FC<CreateAccountProps> = ({
+  container,
+  item,
+  input
+}) => {
   const response = { warning: false, loading: false };
   return (
-    <>
-      <Grid item xs={12}>
+    <Grid container {...container}>
+      <Grid item xs={12} {...item}>
         <TextField
           id="firstname"
           name="firstname"
-          sx={{ ...sx }}
-          variant={variant || 'outlined'}
+          variant={input?.variant || 'outlined'}
+          {...input}
         />
       </Grid>
-      <Grid item xs={12}>
+      <Grid item xs={12} {...item}>
         <TextField
           id="lastname"
           name="lastname"
-          sx={{ ...sx }}
-          variant={variant || 'outlined'}
+          variant={input?.variant || 'outlined'}
+          {...input}
         />
       </Grid>
-      <Grid item xs={12}>
+      <Grid item xs={12} {...item}>
         <TextField
           id="email"
           name="email"
-          sx={{ ...sx }}
-          variant={variant || 'outlined'}
+          variant={input?.variant || 'outlined'}
+          {...input}
         />
       </Grid>
-      <Grid item xs={12} sm={6}>
+      <Grid item xs={12} sm={6} {...item}>
         <TextField
           id="dateOfBirth"
           name="dateOfBirth"
-          sx={{ ...sx }}
-          variant={variant || 'outlined'}
+          variant={input?.variant || 'outlined'}
+          {...input}
         />
       </Grid>
-      <Grid item xs={12} sm={6}>
+      <Grid item xs={12} sm={6} {...item}>
         <TextField
           id="gender"
           name="gender"
-          sx={{ ...sx }}
-          variant={variant || 'outlined'}
+          variant={input?.variant || 'outlined'}
+          {...input}
         />
       </Grid>
-      <Grid item xs={12} sm={6}>
-        <TextField id="cpf" name="cpf" sx={{ ...sx }} variant={variant || 'outlined'} />
+      <Grid item xs={12} sm={6} {...item}>
+        <TextField
+          id="cpf"
+          name="cpf"
+          variant={input?.variant || 'outlined'}
+          {...input}
+        />
       </Grid>
-      <Grid item xs={12} sm={6}>
+      <Grid item xs={12} sm={6} {...item}>
         <TextField
           id="country"
           name="country"
-          sx={{ ...sx }}
-          variant={variant || 'outlined'}
+          variant={input?.variant || 'outlined'}
+          {...input}
         />
       </Grid>
-      <Grid item xs={12} sm={6}>
+      <Grid item xs={12} sm={6} {...item}>
         <TextField
           id="telephone"
           name="telephone"
-          sx={{ ...sx }}
-          variant={variant || 'outlined'}
+          variant={input?.variant || 'outlined'}
+          {...input}
         />
       </Grid>
-      <Grid item xs={12} sm={6}>
+      <Grid item xs={12} sm={6} {...item}>
         <TextField
           id="subscribe"
           name="subscribe"
-          sx={{ ...sx }}
-          variant={variant || 'outlined'}
+          variant={input?.variant || 'outlined'}
+          {...input}
         />
       </Grid>
-      <Grid item xs={12}>
+      <Grid item xs={12} {...item}>
         <TextField
           id="password"
           name="password"
-          sx={{ ...sx }}
-          variant={variant || 'outlined'}
+          variant={input?.variant || 'outlined'}
+          {...input}
         />
       </Grid>
-      <Grid item xs={12}>
+      <Grid item xs={12} {...item}>
         <TextField
           id="password_confirm"
           name="password_confirm"
-          sx={{ ...sx }}
-          variant={variant || 'outlined'}
+          variant={input?.variant || 'outlined'}
+          {...input}
         />
       </Grid>
-    </>
+    </Grid>
   );
 };
