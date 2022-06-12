@@ -13,8 +13,16 @@ export const BoxContainer = styled(Box, {
 
 export const PaperWrapper = styled(Paper, {
   name: 'CreateAccount',
-  slot: 'wrapper'
+  slot: 'container'
 })(({ theme }) => ({
   padding: '2rem 1rem',
   width: '500px'
+}));
+
+export const Form = styled('form', {
+  name: 'CreateAccount',
+  slot: 'form'
+})(({ theme }) => ({
+  display: 'grid',
+  gap: '1rem'
 }));
