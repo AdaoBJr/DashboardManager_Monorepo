@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { useMutation } from 'react-query';
-import { createCustomerGQL } from 'services/gql/customer';
+
+import { key, db } from './query';
 import { queryResquest } from 'services/utils';
 import { CreateAccountDomain } from 'types/domain';
 import { CreateCustomerValues } from 'types/interface';
-import { key, db } from './query';
+import { createCustomerGQL } from 'services/gql/customer';
 
 export const useCreateCustomer = ({ values }: CreateCustomerValues) => {
   const [response, setResponse] = useState<CreateAccountDomain>();
