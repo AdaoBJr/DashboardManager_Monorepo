@@ -1,12 +1,12 @@
 import React from 'react';
 import { Box, SxProps, Theme } from '@mui/material';
 
-import { Image } from 'lib/shared';
+import { Image } from '../../../lib/shared';
 import { ReactFC } from 'types/interface';
 
 interface HeaderModuleProps extends ReactFC {
   fixed?: boolean;
-  src: string;
+  src?: string;
   justify?: string;
   heightHeader?: string;
   widthImg?: string;
@@ -30,7 +30,7 @@ export const HeaderModule: React.FC<HeaderModuleProps> = props => (
     }}
   >
     <Image
-      src={props.src}
+      src={props.src!}
       height={props.heightImg || 50}
       width={props.widthImg || 170}
       alt={props.altImg || 'logo GoDash'}
