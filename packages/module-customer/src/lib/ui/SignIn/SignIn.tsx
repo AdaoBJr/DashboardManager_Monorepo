@@ -31,7 +31,7 @@ export const SignInModule: React.FC<SignInProps> = ({
         <TextField
           id="email"
           name="email"
-          label="Nome"
+          label="E-mail"
           variant={input?.variant || 'outlined'}
           onChange={handleChange}
           onBlur={() => onBlur?.({ ...values })}
@@ -42,7 +42,7 @@ export const SignInModule: React.FC<SignInProps> = ({
         <TextField
           id="password"
           name="password"
-          label="Nome"
+          label="Senha"
           variant={input?.variant || 'outlined'}
           onChange={handleChange}
           onBlur={() => onBlur?.({ ...values })}
