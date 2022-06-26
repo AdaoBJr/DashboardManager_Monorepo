@@ -11,6 +11,7 @@ interface QueryResquestProps {
 
 export const queryResquest = async ({ route, gql, db }: QueryResquestProps) => {
   const response = await request.graphql(route, gql);
-  console.log('response', response);
-  return response.data?.[db].variables.v1;
+  const resWithV1 = response.data?.[db]?.variables.v1;
+  const result = resWithV1 ? resWithV1 : response.data;
+  return result;
 };
