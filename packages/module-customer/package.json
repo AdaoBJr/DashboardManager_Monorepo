@@ -2,5 +2,8 @@
   "name": "@dash/module-customer",
   "version": "0.0.1",
   "main": "index.ts",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@dash/module-components": "^0.0.1"
+  }
 }

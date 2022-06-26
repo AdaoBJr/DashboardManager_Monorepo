@@ -28,6 +28,7 @@
     ]
   },
   "dependencies": {
+    "@dash/module-components": "^0.0.1",
     "@dash/module-customer": "^0.0.1"
   }
 }

@@ -3,6 +3,7 @@ const { getLoader, loaderByName } = require('@craco/craco');
 
 const packages = [];
 packages.push(path.join(__dirname, '..', 'module-customer'));
+packages.push(path.join(__dirname, '..', 'module-components'));
 
 module.exports = {
   webpack: {
@@ -23,6 +24,6 @@ module.exports = {
       webpackConfig.resolve.plugins.splice(scopePluginIndex, 1);
 
       return webpackConfig;
-    },
-  },
+    }
+  }
 };
