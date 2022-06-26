@@ -31,13 +31,20 @@ export const makeServer = () => {
       this.namespace = 'api';
       this.timing = 750;
 
-      this.get('/customers');
-      this.post('/customers', (schema, request) => {
+      this.get('/register');
+      this.post('/register', (schema, request) => {
         const req = JSON.parse(request.requestBody);
 
         return schema.create('customer', req);
       });
-      this.delete('/customers', (schema): any => {
+      this.delete('/register', (schema): any => {
+        return schema.db.dump();
+      });
+
+      this.get('/login', (schema, request) => {
+        return { token: '15d4sdf52st4-3443dx-0e34-45553sd-444' };
+      });
+      this.delete('/login', (schema): any => {
         return schema.db.dump();
       });
     }
