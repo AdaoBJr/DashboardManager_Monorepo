@@ -12,6 +12,6 @@ export interface InputDataCreateAccount {
   password_confirm?: string;
 }
 
-export interface CreateCustomerValues {
+export interface CreateCustomerProps {
   values: InputDataCreateAccount;
 }
