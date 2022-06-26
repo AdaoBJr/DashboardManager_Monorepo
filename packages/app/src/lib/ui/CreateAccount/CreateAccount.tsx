@@ -16,7 +16,6 @@ export const CreateAccount: React.FC<ReactFC> = () => {
   const handleSubmit = async (e: SyntheticEvent) => {
     e.preventDefault();
     mutate(values as any);
-    console.log('response', response);
   };
 
   return (
