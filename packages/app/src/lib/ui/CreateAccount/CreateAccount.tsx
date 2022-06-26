@@ -1,11 +1,11 @@
 import React, { SyntheticEvent, useState } from 'react';
 import { Button } from '@mui/material';
+import { CreateAccountModule } from '@dash/module-customer';
 
 import { ReactFC } from 'types/interface';
 import { CreateAccountDomain } from 'types/domain';
-import { CreateAccountModule } from '@dash/module-customer';
 import { useCreateCustomer } from 'services/infra/requests';
-import { Form, PaperWrapper, BoxContainer } from './styles';
+import { BoxContainer, Form, PaperWrapper } from 'lib/shared/__styles__';
 
 export const CreateAccount: React.FC<ReactFC> = () => {
   const [values, setValues] = useState({} as CreateAccountDomain);
