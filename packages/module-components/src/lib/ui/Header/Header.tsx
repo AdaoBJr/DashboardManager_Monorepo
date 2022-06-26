@@ -31,9 +31,10 @@ export const HeaderModule: React.FC<HeaderModuleProps> = props => (
   >
     <Image
       src={props.src!}
-      height={props.heightImg || 50}
-      width={props.widthImg || 170}
+      height={props.heightImg}
+      width={props.widthImg || 70}
       alt={props.altImg || 'logo GoDash'}
     />
+    <span>GoDash</span>
   </Box>
 );
