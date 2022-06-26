@@ -41,7 +41,7 @@ export const makeServer = () => {
         return schema.db.dump();
       });
 
-      this.get('/login', (schema, request) => {
+      this.post('/login', (schema, request) => {
         return { token: '15d4sdf52st4-3443dx-0e34-45553sd-444' };
       });
       this.delete('/login', (schema): any => {
