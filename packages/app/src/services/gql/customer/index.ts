@@ -1,17 +1,7 @@
 import { generateMutationOp } from '../generated';
-import { CreateCustomerValues } from 'types/interface';
-// import { InputDataCreateAccount } from '../../lib/services/talons/useCreateAccount';
-// import { InputDataSignIn } from '../../lib/services/talons/useSignIn';
+import { CreateCustomerProps, SignInProps } from 'types/interface';
 
-// interface CreateCustomerData {
-//   data: InputDataCreateAccount;
-// }
-
-// interface SignInData {
-//   data: InputDataSignIn;
-// }
-
-export const createCustomerGQL = ({ values }: CreateCustomerValues) =>
+export const createCustomerGQL = ({ values }: CreateCustomerProps) =>
   generateMutationOp({
     createCustomer: [
       { data: values },
@@ -19,7 +9,7 @@ export const createCustomerGQL = ({ values }: CreateCustomerValues) =>
     ]
   });
 
-// export const signInCustomerGQL = ({ data }: SignInData) =>
-//   generateMutationOp({
-//     signInCustomer: [{ data }, { token: true }]
-//   });
+export const signInCustomerGQL = ({ data }: SignInProps) =>
+  generateMutationOp({
+    signInCustomer: [{ data }, { token: true }]
+  });
