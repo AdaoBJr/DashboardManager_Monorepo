@@ -5,7 +5,7 @@ import { CreateAccountModule } from '@dash/module-customer';
 import { ReactFC } from 'types/interface';
 import { CreateAccountDomain } from 'types/domain';
 import { useCreateCustomer } from 'services/infra/requests';
-import { BoxContainer, Form, PaperWrapper } from 'lib/shared/__styles__';
+import { BoxFormWrapper, Form, PaperFormWrapper } from 'lib/shared/__styles__';
 
 export const CreateAccount: React.FC<ReactFC> = () => {
   const [values, setValues] = useState({} as CreateAccountDomain);
@@ -19,8 +19,8 @@ export const CreateAccount: React.FC<ReactFC> = () => {
   };
 
   return (
-    <BoxContainer>
-      <PaperWrapper>
+    <BoxFormWrapper>
+      <PaperFormWrapper>
         <Form onSubmit={handleSubmit} autoComplete="off" noValidate>
           <CreateAccountModule
             container={{ spacing: 1 }}
@@ -33,7 +33,7 @@ export const CreateAccount: React.FC<ReactFC> = () => {
             Enviar
           </Button>
         </Form>
-      </PaperWrapper>
-    </BoxContainer>
+      </PaperFormWrapper>
+    </BoxFormWrapper>
   );
 };
