@@ -1,19 +1,8 @@
 import React from 'react';
-import { Box, SxProps, Theme } from '@mui/material';
+import { Box } from '@mui/material';
 
 import { Image } from '../../../lib/shared';
-import { ReactFC } from 'types/interface';
-
-interface HeaderModuleProps extends ReactFC {
-  fixed?: boolean;
-  src?: string;
-  justify?: string;
-  heightHeader?: string;
-  widthImg?: string;
-  heightImg?: string;
-  altImg?: string;
-  sx?: SxProps<Theme>;
-}
+import { HeaderModuleProps } from '../../../types/interface';
 
 export const HeaderModule: React.FC<HeaderModuleProps> = props => (
   <Box
