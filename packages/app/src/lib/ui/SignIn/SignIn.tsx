@@ -1,14 +1,15 @@
 import React, { SyntheticEvent, useState } from 'react';
-import { Button, Paper } from '@mui/material';
+import { Button } from '@mui/material';
 import { SignInModule } from '@dash/module-customer';
-import { HeaderModule } from '@dash/module-components';
+import { AnimationModule, HeaderModule } from '@dash/module-components';
 
 import { ReactFC } from 'types/interface';
 import { SignInDomain } from 'types/domain';
-import { useSignInCustomer } from 'services/infra/requests';
-import { BoxFormWrapper, Form, PaperFormWrapper } from 'lib/shared/__styles__';
 import logo from 'assets/images/logoGoDash.png';
+import { useSignInCustomer } from 'services/infra/requests';
 import { BoxContainer, PaperHeaderWrapper } from './styles';
+import * as Animation from '../../../assets/animations/login.json';
+import { BoxFormWrapper, Form, PaperFormWrapper } from 'lib/shared/__styles__';
 
 export const SignIn: React.FC<ReactFC> = () => {
   const [values, setValues] = useState({} as SignInDomain);
@@ -42,6 +43,7 @@ export const SignIn: React.FC<ReactFC> = () => {
           </Form>
         </PaperFormWrapper>
       </BoxFormWrapper>
+      <AnimationModule animation={Animation} />
     </BoxContainer>
   );
 };
