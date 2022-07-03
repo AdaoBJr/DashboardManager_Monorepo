@@ -2,6 +2,7 @@ import React, { SyntheticEvent, useState } from 'react';
 import { Button } from '@mui/material';
 import { CreateAccountModule } from '@dash/module-customer';
 
+import { createAccount } from 'articles';
 import { ReactFC } from 'types/interface';
 import { CreateAccountDomain } from 'types/domain';
 import { useCreateCustomer } from 'services/infra/requests';
@@ -27,6 +28,7 @@ export const CreateAccount: React.FC<ReactFC> = () => {
             input={{
               sx: { width: '100%', '& .MuiInputBase-input': { padding: '10px 12px' } }
             }}
+            articles={createAccount}
             onBlur={handleBlur}
           />
           <Button type="submit" variant="contained" onClick={handleSubmit}>
