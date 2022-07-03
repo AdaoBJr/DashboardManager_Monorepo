@@ -3,6 +3,7 @@ import { Button } from '@mui/material';
 import { SignInModule } from '@dash/module-customer';
 import { AnimationModule, HeaderModule } from '@dash/module-components';
 
+import { signIn } from 'articles';
 import { ReactFC } from 'types/interface';
 import { SignInDomain } from 'types/domain';
 import logo from 'assets/images/logoGoDash.png';
@@ -35,6 +36,7 @@ export const SignIn: React.FC<ReactFC> = () => {
               input={{
                 sx: { width: '100%', '& .MuiInputBase-input': { p: '10px 12px' } }
               }}
+              articles={signIn}
               onBlur={handleBlur}
             />
             <Button type="submit" variant="contained" onClick={handleSubmit}>
