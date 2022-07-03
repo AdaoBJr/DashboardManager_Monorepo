@@ -1,20 +1,15 @@
 import React, { ChangeEvent, useCallback, useState } from 'react';
-import { Grid, GridProps, TextField, TextFieldProps } from '@mui/material';
+import { Grid } from '@mui/material';
+import { InputText } from '@dash/module-components';
 
-import { ReactFC } from 'types/interface';
+import { SignInProps } from '../../../types/interface';
 import { SignInDomain } from '../../../types/domain';
-
-interface SignInProps extends ReactFC {
-  container?: GridProps;
-  item?: GridProps;
-  input?: TextFieldProps;
-  onBlur?: (values: SignInDomain) => void;
-}
 
 export const SignInModule: React.FC<SignInProps> = ({
   container,
   item,
   input,
+  articles,
   onBlur
 }) => {
   const [values, setValues] = useState({} as SignInDomain);
@@ -27,28 +22,17 @@ export const SignInModule: React.FC<SignInProps> = ({
 
   return (
     <Grid container {...container}>
-      <Grid item xs={12} {...item}>
-        <TextField
-          id="email"
-          name="email"
-          label="E-mail"
-          variant={input?.variant || 'outlined'}
-          onChange={handleChange}
-          onBlur={() => onBlur?.({ ...values })}
-          {...input}
-        />
-      </Grid>
-      <Grid item xs={12} {...item}>
-        <TextField
-          id="password"
-          name="password"
-          label="Senha"
-          variant={input?.variant || 'outlined'}
-          onChange={handleChange}
-          onBlur={() => onBlur?.({ ...values })}
-          {...input}
-        />
-      </Grid>
+      {articles?.map(data => (
+        <Grid key={data.id} item xs={data.xs} sm={data.sm} {...item}>
+          <InputText
+            {...data}
+            variant={input?.variant || 'outlined'}
+            onChange={handleChange}
+            onBlur={() => onBlur?.({ ...values })}
+            {...input}
+          />
+        </Grid>
+      ))}
     </Grid>
   );
 };
