@@ -1,4 +1,4 @@
-import React, { SyntheticEvent, useState } from 'react';
+import React, { SyntheticEvent, useMemo, useState } from 'react';
 import { Button } from '@mui/material';
 import { SignInModule } from '@dash/module-customer';
 import { AnimationModule, HeaderModule } from '@dash/module-components';
@@ -23,10 +23,19 @@ export const SignIn: React.FC<ReactFC> = () => {
     mutate(values as any);
   };
 
+  const links = useMemo(
+    () => ({
+      link1: { name: 'Home', link: '/home' },
+      link2: { name: 'Quem Somos', link: '/somos' },
+      link3: { name: 'Contato', link: 'contato' }
+    }),
+    []
+  );
+
   return (
     <BoxContainer>
       <PaperHeaderWrapper>
-        <HeaderModule src={logo} />
+        <HeaderModule src={logo} links={links} />
       </PaperHeaderWrapper>
       <BoxFormWrapper>
         <PaperFormWrapper>
