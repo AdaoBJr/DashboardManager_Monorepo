@@ -10,7 +10,7 @@ import { SignInDomain } from 'types/domain';
 import logo from 'assets/images/logoGoDash.png';
 import { useSignInCustomer } from 'services/infra/requests';
 import * as Animation from '../../../assets/animations/login.json';
-import { BoxContainer, PaperHeaderWrapper, BoxHeaderLinks } from './styles';
+import { BoxContainer, PaperHeaderWrapper } from './styles';
 import { BoxFormWrapper, Form, PaperFormWrapper } from 'lib/shared/__styles__';
 
 export const SignIn: React.FC<ReactFC> = () => {
@@ -31,7 +31,7 @@ export const SignIn: React.FC<ReactFC> = () => {
         { name: 'Quem Somos', url: '/somos' },
         { name: 'Contato', url: 'contato' }
       ],
-      componentMUIStyled: BoxHeaderLinks
+      CSSLinkItem: { background: 'red', margin: '2px 16px' }
     }),
     []
   );
