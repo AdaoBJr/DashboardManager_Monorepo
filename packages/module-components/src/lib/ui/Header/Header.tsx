@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 import { Image } from '../../../lib/shared';
@@ -9,17 +9,21 @@ export const HeaderModule: React.FC<HeaderModuleProps> = props => (
   <Box
     sx={{
       position: props.fixed ? 'fixed' : 'inherit',
-      display: 'flex',
-      alignItems: 'flex-end',
-      justifyContent: {
-        xs: props.justify || 'center',
-        md: props.justify || 'start'
-      },
-      marginTop: { xs: '30px', md: '0' },
+      width: '100%',
+      padding: '0 2rem',
       ...props.sx
     }}
   >
-    <>
+    <Box
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: {
+          xs: props.justify || 'center',
+          md: props.justify || 'space-between'
+        }
+      }}
+    >
       <Box>
         <Image
           src={props.src!}
@@ -27,7 +31,7 @@ export const HeaderModule: React.FC<HeaderModuleProps> = props => (
           width={props.widthImg || 70}
           alt={props.altImg || 'logo GoDash'}
         />
-        <Box component="span">{props.title || 'GoDash'}</Box>
+        <Typography component="span">{props.title || 'GoDash'}</Typography>
       </Box>
       <Box sx={{ ...props?.links?.CSSLinkContainer }}>
         {props?.links?.data?.map(link => (
@@ -36,6 +40,6 @@ export const HeaderModule: React.FC<HeaderModuleProps> = props => (
           </Link>
         ))}
       </Box>
-    </>
+    </Box>
   </Box>
 );

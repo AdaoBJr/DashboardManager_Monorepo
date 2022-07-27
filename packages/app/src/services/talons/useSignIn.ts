@@ -6,7 +6,7 @@ import { useSignInStyles } from 'lib/ui/SignIn/styles';
 import { useSignInCustomer } from 'services/infra/requests';
 
 export const useSignIn = () => {
-  const { HeaderLinksStyled } = useSignInStyles();
+  const { HeaderLinkItemStyled, HeaderLinkContainerStyled } = useSignInStyles();
 
   const [values, setValues] = useState({} as SignInDomain);
   const { mutate, response } = useSignInCustomer({ data: values });
@@ -25,7 +25,8 @@ export const useSignIn = () => {
         { name: 'Quem Somos', url: '/somos' },
         { name: 'Contato', url: 'contato' }
       ],
-      CSSLinkItem: { ...HeaderLinksStyled }
+      CSSLinkContainer: { ...HeaderLinkContainerStyled },
+      CSSLinkItem: { ...HeaderLinkItemStyled }
     }),
     []
   );

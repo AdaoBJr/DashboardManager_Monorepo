@@ -18,11 +18,23 @@ export const PaperHeaderWrapper = styled(Paper, {
 
 export const useSignInStyles = () => {
   const { theme } = useAppContext();
+  const {
+    palette: { primary },
+    shape: { borderRadius }
+  } = theme;
 
-  const HeaderLinksStyled: CSSProperties = {
-    background: theme.palette.primary.main,
-    margin: '5px 1rem'
+  const HeaderLinkContainerStyled: CSSProperties = {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
   };
 
-  return { HeaderLinksStyled };
+  const HeaderLinkItemStyled: CSSProperties = {
+    background: primary.main,
+    padding: '.4rem',
+    borderRadius,
+    margin: '5px .5rem'
+  };
+
+  return { HeaderLinkItemStyled, HeaderLinkContainerStyled };
 };
