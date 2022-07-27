@@ -1,5 +1,5 @@
-import { Box, Paper } from '@mui/material';
-import { styled } from '@mui/material/styles';
+import { Box, Paper, Theme } from '@mui/material';
+import { CreateMUIStyled, styled } from '@mui/material/styles';
 
 export const BoxContainer = styled(Box, {
   name: 'SignIn',
@@ -11,4 +11,11 @@ export const PaperHeaderWrapper = styled(Paper, {
   slot: 'header-wrapper'
 })(({ theme }) => ({
   padding: '.25rem'
+}));
+
+export const BoxHeaderLinks = styled(Box, {
+  name: 'SignIn',
+  slot: 'header-links'
+})(({ theme }) => ({
+  backgroundColor: theme.palette.primary.main
 }));
