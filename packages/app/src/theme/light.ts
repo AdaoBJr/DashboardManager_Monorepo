@@ -47,7 +47,7 @@ export const themeConfig = {
     }
   },
   typography: {
-    fontFamily: ['Roboto', 'sans-serif'].join(','),
+    fontFamily: ['Inter', 'sans-serif'].join(','),
     body1: {
       color: '#455560',
       fontWeight: 400,
