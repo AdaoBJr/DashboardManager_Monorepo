@@ -19,19 +19,27 @@ export const HeaderModule: React.FC<HeaderModuleProps> = props => (
       ...props.sx
     }}
   >
-    <div>
-      <Image
-        src={props.src!}
-        height={props.heightImg}
-        width={props.widthImg || 70}
-        alt={props.altImg || 'logo GoDash'}
-      />
-      <span>{props.title || 'GoDash'}</span>
-    </div>
-    <div>
-      <Link to={props?.links?.link1?.link!}>{props?.links?.link1?.name}</Link>
-      <Link to={props?.links?.link2?.link!}>{props?.links?.link2?.name}</Link>
-      <Link to={props?.links?.link3?.link!}>{props?.links?.link3?.name}</Link>
-    </div>
+    <>
+      <Box>
+        <Image
+          src={props.src!}
+          height={props.heightImg}
+          width={props.widthImg || 70}
+          alt={props.altImg || 'logo GoDash'}
+        />
+        <Box component="span">{props.title || 'GoDash'}</Box>
+      </Box>
+      {!props?.links?.componentMUIStyled ? (
+        <Box sx={{ ...props?.links?.sx }}>
+          {props?.links?.data?.map(link => (
+            <Link key={link.name} to={link.url}>
+              {link.name}
+            </Link>
+          ))}
+        </Box>
+      ) : (
+        props?.links?.componentMUIStyled
+      )}
+    </>
   </Box>
 );
