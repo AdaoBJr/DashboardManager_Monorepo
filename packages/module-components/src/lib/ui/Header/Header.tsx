@@ -29,17 +29,13 @@ export const HeaderModule: React.FC<HeaderModuleProps> = props => (
         />
         <Box component="span">{props.title || 'GoDash'}</Box>
       </Box>
-      {!props?.links?.componentMUIStyled ? (
-        <Box sx={{ ...props?.links?.sx }}>
-          {props?.links?.data?.map(link => (
-            <Link key={link.name} to={link.url}>
-              {link.name}
-            </Link>
-          ))}
-        </Box>
-      ) : (
-        props?.links?.componentMUIStyled
-      )}
+      <Box sx={{ ...props?.links?.CSSLinkContainer }}>
+        {props?.links?.data?.map(link => (
+          <Link style={{ ...props?.links?.CSSLinkItem }} key={link.name} to={link.url}>
+            {link.name}
+          </Link>
+        ))}
+      </Box>
     </>
   </Box>
 );
