@@ -1,6 +1,7 @@
 import React, { SyntheticEvent, useMemo, useState } from 'react';
 import { Button } from '@mui/material';
 import { SignInModule } from '@dash/module-customer';
+import { Links } from '@dash/module-components/src/types/interface';
 import { AnimationModule, HeaderModule } from '@dash/module-components';
 
 import { signIn } from 'articles';
@@ -8,8 +9,8 @@ import { ReactFC } from 'types/interface';
 import { SignInDomain } from 'types/domain';
 import logo from 'assets/images/logoGoDash.png';
 import { useSignInCustomer } from 'services/infra/requests';
-import { BoxContainer, PaperHeaderWrapper } from './styles';
 import * as Animation from '../../../assets/animations/login.json';
+import { BoxContainer, PaperHeaderWrapper, BoxHeaderLinks } from './styles';
 import { BoxFormWrapper, Form, PaperFormWrapper } from 'lib/shared/__styles__';
 
 export const SignIn: React.FC<ReactFC> = () => {
@@ -24,10 +25,13 @@ export const SignIn: React.FC<ReactFC> = () => {
   };
 
   const links = useMemo(
-    () => ({
-      link1: { name: 'Home', link: '/home' },
-      link2: { name: 'Quem Somos', link: '/somos' },
-      link3: { name: 'Contato', link: 'contato' }
+    (): Links => ({
+      data: [
+        { name: 'Home', url: '/home' },
+        { name: 'Quem Somos', url: '/somos' },
+        { name: 'Contato', url: 'contato' }
+      ],
+      componentMUIStyled: BoxHeaderLinks
     }),
     []
   );
