@@ -12,10 +12,3 @@ export const PaperHeaderWrapper = styled(Paper, {
 })(({ theme }) => ({
   padding: '.25rem'
 }));
-
-export const BoxHeaderLinks = styled(Box, {
-  name: 'SignIn',
-  slot: 'header-links'
-})(({ theme }) => ({
-  backgroundColor: theme.palette.primary.main
-}));
