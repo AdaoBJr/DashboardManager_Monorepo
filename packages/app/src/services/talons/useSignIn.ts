@@ -2,7 +2,7 @@ import { SyntheticEvent, useMemo, useState } from 'react';
 import { Links } from '@dash/module-components/src/types/interface';
 
 import { SignInDomain } from 'types/domain';
-// import { HeaderLinksStyled } from 'lib/ui/SignIn/styles';
+import { HeaderLinksStyled } from 'lib/ui/SignIn/styles';
 import { useSignInCustomer } from 'services/infra/requests';
 
 export const useSignIn = () => {
@@ -22,8 +22,8 @@ export const useSignIn = () => {
         { name: 'Home', url: '/home' },
         { name: 'Quem Somos', url: '/somos' },
         { name: 'Contato', url: 'contato' }
-      ]
-      // CSSLinkItem: { ...HeaderLinksStyled }
+      ],
+      CSSLinkItem: { ...HeaderLinksStyled }
     }),
     []
   );

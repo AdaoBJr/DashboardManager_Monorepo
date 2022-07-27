@@ -1,5 +1,6 @@
-import { Box, Paper, Theme } from '@mui/material';
-import { CreateMUIStyled, styled } from '@mui/material/styles';
+import { Box, Paper } from '@mui/material';
+import { styled } from '@mui/material/styles';
+import { CSSProperties } from 'react';
 
 export const BoxContainer = styled(Box, {
   name: 'SignIn',
@@ -12,3 +13,8 @@ export const PaperHeaderWrapper = styled(Paper, {
 })(({ theme }) => ({
   padding: '.25rem'
 }));
+
+export const HeaderLinksStyled: CSSProperties = {
+  background: 'red',
+  margin: '5px 1rem'
+};
