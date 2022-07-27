@@ -2,10 +2,12 @@ import { SyntheticEvent, useMemo, useState } from 'react';
 import { Links } from '@dash/module-components/src/types/interface';
 
 import { SignInDomain } from 'types/domain';
-import { HeaderLinksStyled } from 'lib/ui/SignIn/styles';
+import { useSignInStyles } from 'lib/ui/SignIn/styles';
 import { useSignInCustomer } from 'services/infra/requests';
 
 export const useSignIn = () => {
+  const { HeaderLinksStyled } = useSignInStyles();
+
   const [values, setValues] = useState({} as SignInDomain);
   const { mutate, response } = useSignInCustomer({ data: values });
 

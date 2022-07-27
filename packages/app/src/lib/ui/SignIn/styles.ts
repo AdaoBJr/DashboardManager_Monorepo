@@ -1,6 +1,8 @@
+import { CSSProperties } from 'react';
 import { Box, Paper } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { CSSProperties } from 'react';
+
+import { useAppContext } from 'context';
 
 export const BoxContainer = styled(Box, {
   name: 'SignIn',
@@ -14,7 +16,13 @@ export const PaperHeaderWrapper = styled(Paper, {
   padding: '.25rem'
 }));
 
-export const HeaderLinksStyled: CSSProperties = {
-  background: 'red',
-  margin: '5px 1rem'
+export const useSignInStyles = () => {
+  const { theme } = useAppContext();
+
+  const HeaderLinksStyled: CSSProperties = {
+    background: theme.palette.primary.main,
+    margin: '5px 1rem'
+  };
+
+  return { HeaderLinksStyled };
 };
