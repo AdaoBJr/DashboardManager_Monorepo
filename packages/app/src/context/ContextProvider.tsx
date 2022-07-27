@@ -1,31 +1,29 @@
-import { ThemeProvider } from '@emotion/react';
+import React, { useCallback, useState } from 'react';
 import { Box } from '@mui/material';
-import React, { useCallback, useMemo, useState } from 'react';
+import { ThemeProvider } from '@emotion/react';
+
 import { darkTheme, lightTheme } from 'theme';
 import { ReactFC } from 'types/interface';
 import store, { THEME } from './store';
 
 export const ContextProvider: React.FC<ReactFC> = ({ children }) => {
-  const [themeName, setThemeName] = useState(THEME);
+  const [{ theme, themeMode }, setTheme] = useState(THEME);
 
-  const toggleTheme = useCallback(
-    () =>
-      setThemeName(({ theme }) =>
-        theme === 'light' ? { theme: 'dark' } : { theme: 'light' }
-      ),
-    [themeName, setThemeName]
-  );
-
-  const theme = useMemo(() => (themeName.theme === 'light' ? lightTheme : darkTheme), [
-    themeName
-  ]);
+  const toggleTheme = useCallback(() => {
+    const themeCurrent =
+      themeMode === 'light'
+        ? { themeMode: 'dark', theme: darkTheme }
+        : { themeMode: 'light', theme: lightTheme };
+    setTheme(themeCurrent);
+  }, [theme, themeMode, setTheme]);
 
   //---------------------------------------------------------------------
   // CICLOS DE VIDA
 
   // CONTEXT API
   const contextValue = {
-    theme: themeName.theme,
+    theme,
+    themeMode,
     toggleTheme
   };
 
