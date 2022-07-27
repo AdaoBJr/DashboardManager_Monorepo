@@ -1,15 +1,16 @@
+import React from 'react';
 import { ReactFC } from '../React';
 import { SxProps, Theme } from '@mui/material';
 
 interface LinkDetail {
   name: string;
-  link: string;
+  url: string;
 }
 
-interface Links {
-  link1?: LinkDetail;
-  link2?: LinkDetail;
-  link3?: LinkDetail;
+export interface Links {
+  data?: LinkDetail[];
+  sx?: SxProps<Theme>;
+  componentMUIStyled?: React.FC;
 }
 
 export interface HeaderModuleProps extends ReactFC {
