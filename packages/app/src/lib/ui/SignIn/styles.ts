@@ -41,5 +41,5 @@ export const PaperForm: SxProps<Theme> = {
   width: { xs: '100%', md: '500px' },
   height: { xs: '100%', md: '445px' },
   boxShadow: theme => theme.shadows[13],
-  marginLeft: '4rem'
+  marginLeft: { xs: 0, md: '35%' }
 };
