@@ -20,6 +20,7 @@ export const AnimationModule: React.FC<AnimationModuleProps> = props => {
       options={settings}
       width={props?.width || props?.height || 460}
       height={props?.height || props?.width || 460}
+      style={{ ...props?.style }}
     />
   );
 };
