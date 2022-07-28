@@ -42,7 +42,7 @@ export const LinkItem: SxProps<Theme> = {
 export const PaperForm: SxProps<Theme> = {
   width: { xs: '100%', md: '500px' },
   height: { xs: '100%', md: '445px' },
-  marginLeft: { xs: 0, md: '35%' },
+  marginLeft: { xs: 0, md: '10%', lg: '30%' },
   marginTop: '4rem',
   boxShadow: theme => theme.shadows[13]
 };
@@ -54,5 +54,6 @@ export const SignInTitle: SxProps<Theme> = {
 
 export const SignInInputs: SxProps<Theme> = {
   width: '100%',
-  '& .MuiInputBase-input': { p: '10px 12px' }
+  '& .MuiInputBase-input': { p: '10px 12px' },
+  '& .MuiInputLabel-root': { top: '-5px' }
 };
