@@ -15,8 +15,7 @@ export const PaperFormWrapper = styled(Paper, {
   name: 'SharedPaperFormWrapper',
   slot: 'wrapper'
 })(({ theme }) => ({
-  padding: '2rem 1rem',
-  width: '500px'
+  padding: '2rem 1rem'
 }));
 
 export const Form = styled('form', {
