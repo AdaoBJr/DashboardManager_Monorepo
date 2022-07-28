@@ -8,17 +8,20 @@ import { ReactFC } from 'types/interface';
 import { useSignIn } from 'services/talons';
 import logo from 'assets/images/logoGoDash.png';
 import * as Animation from '../../../assets/animations/login.json';
-import { BoxContainer, PaperHeaderWrapper } from './styles';
+import { BoxContainer, PaperWrapper, LinkContainer, LinkItem } from './styles';
 import { BoxFormWrapper, Form, PaperFormWrapper } from 'lib/shared/__styles__';
 
 export const SignIn: React.FC<ReactFC> = () => {
-  const { handleBlur, handleSubmit, links } = useSignIn();
+  const { handleBlur, handleSubmit, dataLinks } = useSignIn();
 
   return (
     <BoxContainer>
-      <PaperHeaderWrapper>
-        <HeaderModule src={logo} links={links} />
-      </PaperHeaderWrapper>
+      <PaperWrapper>
+        <HeaderModule
+          src={logo}
+          linksProps={{ dataLinks, sx: { container: LinkContainer, item: LinkItem } }}
+        />
+      </PaperWrapper>
       <BoxFormWrapper>
         <PaperFormWrapper>
           <Form onSubmit={handleSubmit} autoComplete="off" noValidate>
