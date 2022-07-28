@@ -1,14 +1,14 @@
 import { styled } from '@mui/material/styles';
-import { Box, Paper, SxProps, Theme } from '@mui/material';
+import { Grid, Paper, SxProps, Theme } from '@mui/material';
 
-export const BoxContainer = styled(Box, {
+export const GridContainer = styled(Grid, {
   name: 'SignIn',
   slot: 'container'
 })(({ theme }) => ({
   padding: '.25rem 1rem'
 }));
 
-export const PaperWrapper = styled(Paper, {
+export const PaperHeader = styled(Paper, {
   name: 'SignIn',
   slot: 'header-wrapper'
 })(({ theme }) => ({
@@ -35,4 +35,11 @@ export const LinkItem: SxProps<Theme> = {
     color: '#fff',
     transition: '.5s'
   }
+};
+
+export const PaperForm: SxProps<Theme> = {
+  width: { xs: '100%', md: '500px' },
+  height: { xs: '100%', md: '445px' },
+  boxShadow: theme => theme.shadows[13],
+  marginLeft: '4rem'
 };
