@@ -1,9 +1,6 @@
 import React, { useMemo } from 'react';
 import Lottie from 'react-lottie';
-
-interface AnimationModuleProps {
-  animation: any;
-}
+import { AnimationModuleProps } from '../../../types/interface';
 
 export const AnimationModule: React.FC<AnimationModuleProps> = props => {
   const settings = useMemo(
@@ -18,5 +15,11 @@ export const AnimationModule: React.FC<AnimationModuleProps> = props => {
     [props.animation]
   );
 
-  return <Lottie options={settings} />;
+  return (
+    <Lottie
+      options={settings}
+      width={props?.width || props?.height || 460}
+      height={props?.height || props?.width || 460}
+    />
+  );
 };
