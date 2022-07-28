@@ -7,9 +7,9 @@ import { signIn } from 'articles';
 import { ReactFC } from 'types/interface';
 import { useSignIn } from 'services/talons';
 import logo from 'assets/images/logoGoDash.png';
+import { Form, PaperFormWrapper } from 'lib/shared/__styles__';
 import * as Animation from '../../../assets/animations/login.json';
 import { GridContainer, PaperHeader, LinkContainer, LinkItem, PaperForm } from './styles';
-import { Form, PaperFormWrapper } from 'lib/shared/__styles__';
 
 export const SignIn: React.FC<ReactFC> = () => {
   const { handleBlur, handleSubmit, dataLinks } = useSignIn();
