@@ -16,7 +16,8 @@ import {
   LinkItem,
   PaperForm,
   SignInTitle,
-  SignInInputs
+  SignInInputs,
+  SignInButton
 } from './styles';
 
 export const SignIn: React.FC<ReactFC> = () => {
@@ -34,7 +35,12 @@ export const SignIn: React.FC<ReactFC> = () => {
       </Grid>
       <Grid item md={6}>
         <PaperFormWrapper sx={PaperForm}>
-          <Form onSubmit={handleSubmit} autoComplete="off" noValidate>
+          <Form
+            sx={{ gap: '2rem' }}
+            onSubmit={handleSubmit}
+            autoComplete="off"
+            noValidate
+          >
             <SignInModule
               title={{ ...signInTitle, sx: SignInTitle }}
               container={{ spacing: 1 }}
@@ -42,7 +48,12 @@ export const SignIn: React.FC<ReactFC> = () => {
               articles={signInInputs}
               onBlur={handleBlur}
             />
-            <Button type="submit" variant="contained" onClick={handleSubmit}>
+            <Button
+              type="submit"
+              variant="contained"
+              onClick={handleSubmit}
+              sx={SignInButton}
+            >
               Entrar
             </Button>
           </Form>
