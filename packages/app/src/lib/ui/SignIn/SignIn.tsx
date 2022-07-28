@@ -15,7 +15,7 @@ export const SignIn: React.FC<ReactFC> = () => {
   const { handleBlur, handleSubmit, dataLinks } = useSignIn();
 
   return (
-    <GridContainer container spacing={{ xs: 4, md: 3 }}>
+    <GridContainer container>
       <Grid item xs={12}>
         <PaperHeader>
           <HeaderModule
@@ -46,7 +46,7 @@ export const SignIn: React.FC<ReactFC> = () => {
           animation={Animation}
           width={500}
           height={445}
-          style={{ margin: 0 }}
+          style={{ margin: '3rem 0 0' }}
         />
       </Grid>
     </GridContainer>

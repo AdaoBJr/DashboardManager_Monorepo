@@ -5,7 +5,9 @@ export const GridContainer = styled(Grid, {
   name: 'SignIn',
   slot: 'container'
 })(({ theme }) => ({
-  padding: '.25rem 1rem'
+  margin: '0 auto',
+  padding: '.25rem 1rem',
+  maxWidth: 1600
 }));
 
 export const PaperHeader = styled(Paper, {
@@ -40,6 +42,7 @@ export const LinkItem: SxProps<Theme> = {
 export const PaperForm: SxProps<Theme> = {
   width: { xs: '100%', md: '500px' },
   height: { xs: '100%', md: '445px' },
-  boxShadow: theme => theme.shadows[13],
-  marginLeft: { xs: 0, md: '35%' }
+  marginLeft: { xs: 0, md: '35%' },
+  marginTop: '4rem',
+  boxShadow: theme => theme.shadows[13]
 };
