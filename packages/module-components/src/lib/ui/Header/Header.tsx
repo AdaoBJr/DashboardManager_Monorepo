@@ -33,10 +33,10 @@ export const HeaderModule: React.FC<HeaderModuleProps> = props => (
         />
         <Typography component="span">{props.title || 'GoDash'}</Typography>
       </Box>
-      <Box sx={{ ...props?.links?.CSSLinkContainer }}>
-        {props?.links?.data?.map(link => (
-          <Link style={{ ...props?.links?.CSSLinkItem }} key={link.name} to={link.url}>
-            {link.name}
+      <Box sx={{ ...props?.linksProps?.sx?.container }}>
+        {props?.linksProps?.dataLinks?.map(link => (
+          <Link key={link.name} to={link.url}>
+            <Typography sx={{ ...props?.linksProps?.sx?.item }}>{link.name}</Typography>
           </Link>
         ))}
       </Box>
