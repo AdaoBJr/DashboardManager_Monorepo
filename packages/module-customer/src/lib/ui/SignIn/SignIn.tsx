@@ -1,11 +1,12 @@
 import React, { ChangeEvent, useCallback, useState } from 'react';
-import { Grid } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import { InputText } from '@dash/module-components';
 
 import { SignInProps } from '../../../types/interface';
 import { SignInDomain } from '../../../types/domain';
 
 export const SignInModule: React.FC<SignInProps> = ({
+  title,
   container,
   item,
   input,
@@ -22,6 +23,13 @@ export const SignInModule: React.FC<SignInProps> = ({
 
   return (
     <Grid container {...container}>
+      {title?.name && (
+        <Grid item xs={title.xs} sm={title.sm} {...title?.item}>
+          <Typography variant="h6" sx={{ ...title?.sx }} {...title?.text}>
+            {title.name}
+          </Typography>
+        </Grid>
+      )}
       {articles?.map(data => (
         <Grid key={data.id} item xs={data.xs} sm={data.sm} {...item}>
           <InputText
