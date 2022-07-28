@@ -46,3 +46,13 @@ export const PaperForm: SxProps<Theme> = {
   marginTop: '4rem',
   boxShadow: theme => theme.shadows[13]
 };
+
+export const SignInTitle: SxProps<Theme> = {
+  textAlign: 'center',
+  fontWeight: '700'
+};
+
+export const SignInInputs: SxProps<Theme> = {
+  width: '100%',
+  '& .MuiInputBase-input': { p: '10px 12px' }
+};
