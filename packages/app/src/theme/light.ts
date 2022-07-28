@@ -47,7 +47,7 @@ export const themeConfig = {
     }
   },
   typography: {
-    fontFamily: ['Inter', 'sans-serif'].join(','),
+    fontFamily: ['JetBrains Mono', 'sans-serif'].join(','),
     body1: {
       color: '#455560',
       fontWeight: 400,
@@ -61,7 +61,15 @@ export const themeConfig = {
     MuiButton: {
       styleOverrides: {
         root: {
-          borderRadius: 6
+          borderRadius: 6,
+          letterSpacing: '1px'
+        }
+      }
+    },
+    MuiTypography: {
+      styleOverrides: {
+        root: {
+          letterSpacing: '1px'
         }
       }
     }
