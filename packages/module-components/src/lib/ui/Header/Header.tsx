@@ -30,10 +30,10 @@ export const HeaderModule: React.FC<HeaderModuleProps> = props => (
         />
         <Typography component="span">{props.title || 'GoDash'}</Typography>
       </Box>
-      {!props?.windownSize?.smDown && props?.linksProps && (
+      {!props?.windowSize?.smDown && props?.linksProps && (
         <Links {...props?.linksProps} />
       )}
-      {props?.windownSize?.smDown && (
+      {props?.windowSize?.smDown && (
         <IconButton>
           <Icon fontSize="large">menu</Icon>
         </IconButton>
