@@ -37,7 +37,7 @@ export const useSignIn = () => {
 
   const compProps = useMemo(
     () => ({
-      headerModules: {
+      headerProps: {
         windowSize,
         src: logo,
         linksProps: {

@@ -19,13 +19,13 @@ import {
 
 export const SignIn: React.FC<ReactFC> = () => {
   const { handleBlur, handleSubmit, compProps, windowSize } = useSignIn();
-  const { headerModules } = compProps;
+  const { headerProps } = compProps;
 
   return (
     <GridContainer container>
       <Grid item xs={12}>
         <PaperHeader>
-          <HeaderModule {...headerModules} />
+          <HeaderModule {...headerProps} />
         </PaperHeader>
       </Grid>
       <Grid item md={6}>
