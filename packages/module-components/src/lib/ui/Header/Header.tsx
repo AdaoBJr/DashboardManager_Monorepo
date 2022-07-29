@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
-import { Link } from 'react-router-dom';
 
+import { Links } from './components';
 import { Image } from '../../../lib/shared';
 import { HeaderModuleProps } from '../../../types/interface';
 
@@ -33,13 +33,7 @@ export const HeaderModule: React.FC<HeaderModuleProps> = props => (
         />
         <Typography component="span">{props.title || 'GoDash'}</Typography>
       </Box>
-      <Box sx={{ ...props?.linksProps?.sx?.container }}>
-        {props?.linksProps?.dataLinks?.map(link => (
-          <Link key={link.name} to={link.url}>
-            <Typography sx={{ ...props?.linksProps?.sx?.item }}>{link.name}</Typography>
-          </Link>
-        ))}
-      </Box>
+      {props?.linksProps && <Links {...props?.linksProps} />}
     </Box>
   </Box>
 );
