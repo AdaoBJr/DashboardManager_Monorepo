@@ -17,6 +17,6 @@ export const useSignInCustomer = ({ data }: SignInProps) => {
     }
   );
 
-  console.log('response', response);
+  // console.log('response', response);
   return { mutate, response };
 };
