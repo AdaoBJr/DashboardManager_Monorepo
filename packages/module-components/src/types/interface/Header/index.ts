@@ -11,14 +11,14 @@ interface SxDetail {
   item?: SxProps<Theme>;
 }
 
-export interface Links {
+export interface LinksProps {
   dataLinks?: LinkDetail[];
   sx?: SxDetail;
 }
 
 export interface HeaderModuleProps extends ReactFC {
   title?: string;
-  linksProps?: Links;
+  linksProps?: LinksProps;
   fixed?: boolean;
   src?: string;
   justify?: string;
