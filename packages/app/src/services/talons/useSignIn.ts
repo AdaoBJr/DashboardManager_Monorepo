@@ -1,12 +1,21 @@
-import { useMediaQuery } from '@mui/material';
+import { ButtonProps, useMediaQuery } from '@mui/material';
 import { SyntheticEvent, useMemo, useState } from 'react';
+import { SignInProps } from '@dash/module-customer';
 import { HeaderModuleProps, LinksProps } from '@dash/module-components';
 
 import { useAppContext } from 'context';
 import { SignInDomain } from 'types/domain';
 import logo from 'assets/images/logoGoDash.png';
+import { signInInputs, signInTitle } from 'articles';
 import { useSignInCustomer } from 'services/infra/requests';
-import { ContainerHeader, LinkContainer, LinkItem } from 'lib/ui/SignIn/styles';
+import {
+  ContainerHeader,
+  LinkContainer,
+  LinkItem,
+  SignInTitle,
+  SignInInputs,
+  SignInButton
+} from 'lib/ui/SignIn/styles';
 
 export const useSignIn = () => {
   const { theme } = useAppContext();
@@ -51,9 +60,33 @@ export const useSignIn = () => {
         onSubmit: handleSubmit,
         autoComplete: 'off',
         noValidate: true
-      }
+      },
+      signInModuleProps: {
+        title: { ...signInTitle, sx: SignInTitle },
+        container: { spacing: 1 },
+        input: { sx: SignInInputs },
+        articles: signInInputs,
+        onBlur: handleBlur
+      } as SignInProps,
+      buttonProps: {
+        type: 'submit',
+        variant: 'contained',
+        onClick: handleSubmit,
+        sx: SignInButton
+      } as ButtonProps
     }),
-    [theme, logo, LinkContainer, LinkItem]
+    [
+      theme,
+      logo,
+      LinkContainer,
+      LinkItem,
+      handleSubmit,
+      handleBlur,
+      signInTitle,
+      SignInTitle,
+      SignInInputs,
+      signInInputs
+    ]
   );
 
   return { handleBlur, handleSubmit, compProps, windowSize, response };

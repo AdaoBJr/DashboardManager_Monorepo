@@ -5,20 +5,13 @@ import { AnimationModule, HeaderModule } from '@dash/module-components';
 
 import { ReactFC } from 'types/interface';
 import { useSignIn } from 'services/talons';
-import { signInInputs, signInTitle } from 'articles';
 import { Form, PaperFormWrapper } from 'lib/shared/__styles__';
 import * as Animation from '../../../assets/animations/login.json';
-import {
-  GridContainer,
-  PaperForm,
-  SignInTitle,
-  SignInInputs,
-  SignInButton
-} from './styles';
+import { GridContainer, PaperForm } from './styles';
 
 export const SignIn: React.FC<ReactFC> = () => {
-  const { handleBlur, handleSubmit, compProps, windowSize } = useSignIn();
-  const { headerProps, formProps } = compProps;
+  const { handleSubmit, compProps, windowSize } = useSignIn();
+  const { headerProps, formProps, signInModuleProps, buttonProps } = compProps;
 
   return (
     <GridContainer container>
@@ -28,21 +21,8 @@ export const SignIn: React.FC<ReactFC> = () => {
       <Grid item md={6}>
         <PaperFormWrapper sx={PaperForm}>
           <Form {...formProps}>
-            <SignInModule
-              title={{ ...signInTitle, sx: SignInTitle }}
-              container={{ spacing: 1 }}
-              input={{ sx: SignInInputs }}
-              articles={signInInputs}
-              onBlur={handleBlur}
-            />
-            <Button
-              type="submit"
-              variant="contained"
-              onClick={handleSubmit}
-              sx={SignInButton}
-            >
-              Entrar
-            </Button>
+            <SignInModule {...signInModuleProps} />
+            <Button {...buttonProps}>Entrar</Button>
           </Form>
         </PaperFormWrapper>
       </Grid>
