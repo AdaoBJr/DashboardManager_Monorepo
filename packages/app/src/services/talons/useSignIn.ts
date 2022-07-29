@@ -1,5 +1,5 @@
 import { SyntheticEvent, useMemo, useState } from 'react';
-import { Links } from '@dash/module-components/src/types/interface';
+import { LinksProps } from '@dash/module-components/src/types/interface';
 
 import { SignInDomain } from 'types/domain';
 import { useSignInCustomer } from 'services/infra/requests';
@@ -16,7 +16,7 @@ export const useSignIn = () => {
   };
 
   const dataLinks = useMemo(
-    (): Links => ({
+    (): LinksProps => ({
       dataLinks: [
         { name: 'Home', url: '/home' },
         { name: 'Quem Somos', url: '/somos' },
