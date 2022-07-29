@@ -1,7 +1,11 @@
-import { ButtonProps, useMediaQuery } from '@mui/material';
 import { SyntheticEvent, useMemo, useState } from 'react';
+import { ButtonProps, useMediaQuery } from '@mui/material';
 import { SignInProps } from '@dash/module-customer';
-import { HeaderModuleProps, LinksProps } from '@dash/module-components';
+import {
+  AnimationModuleProps,
+  HeaderModuleProps,
+  LinksProps
+} from '@dash/module-components';
 
 import { useAppContext } from 'context';
 import { SignInDomain } from 'types/domain';
@@ -16,6 +20,7 @@ import {
   SignInInputs,
   SignInButton
 } from 'lib/ui/SignIn/styles';
+import * as animation from 'assets/animations/login.json';
 
 export const useSignIn = () => {
   const { theme } = useAppContext();
@@ -73,7 +78,13 @@ export const useSignIn = () => {
         variant: 'contained',
         onClick: handleSubmit,
         sx: SignInButton
-      } as ButtonProps
+      } as ButtonProps,
+      animationProps: {
+        animation,
+        width: windowSize?.smDown ? 345 : 500,
+        height: windowSize?.smDown ? 345 : 445,
+        style: { margin: '3rem 0 0' }
+      } as AnimationModuleProps
     }),
     [
       theme,
@@ -85,7 +96,9 @@ export const useSignIn = () => {
       signInTitle,
       SignInTitle,
       SignInInputs,
-      signInInputs
+      signInInputs,
+      SignInButton,
+      windowSize
     ]
   );
 
