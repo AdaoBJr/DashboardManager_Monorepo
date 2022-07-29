@@ -27,4 +27,5 @@ export interface HeaderModuleProps extends ReactFC {
   heightImg?: string;
   altImg?: string;
   sx?: SxProps<Theme>;
+  theme?: Theme;
 }

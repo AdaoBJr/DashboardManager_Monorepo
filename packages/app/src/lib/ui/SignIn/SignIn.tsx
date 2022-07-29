@@ -3,6 +3,7 @@ import { Button, Grid } from '@mui/material';
 import { SignInModule } from '@dash/module-customer';
 import { AnimationModule, HeaderModule } from '@dash/module-components';
 
+import { useAppContext } from 'context';
 import { ReactFC } from 'types/interface';
 import { useSignIn } from 'services/talons';
 import logo from 'assets/images/logoGoDash.png';
@@ -21,6 +22,7 @@ import {
 } from './styles';
 
 export const SignIn: React.FC<ReactFC> = () => {
+  const { theme } = useAppContext();
   const { handleBlur, handleSubmit, dataLinks } = useSignIn();
 
   return (
@@ -28,6 +30,7 @@ export const SignIn: React.FC<ReactFC> = () => {
       <Grid item xs={12}>
         <PaperHeader>
           <HeaderModule
+            theme={theme}
             src={logo}
             linksProps={{ dataLinks, sx: { container: LinkContainer, item: LinkItem } }}
           />
