@@ -10,7 +10,6 @@ import { Form, PaperFormWrapper } from 'lib/shared/__styles__';
 import * as Animation from '../../../assets/animations/login.json';
 import {
   GridContainer,
-  PaperHeader,
   PaperForm,
   SignInTitle,
   SignInInputs,
@@ -19,23 +18,16 @@ import {
 
 export const SignIn: React.FC<ReactFC> = () => {
   const { handleBlur, handleSubmit, compProps, windowSize } = useSignIn();
-  const { headerProps } = compProps;
+  const { headerProps, formProps } = compProps;
 
   return (
     <GridContainer container>
       <Grid item xs={12}>
-        <PaperHeader>
-          <HeaderModule {...headerProps} />
-        </PaperHeader>
+        <HeaderModule {...headerProps} />
       </Grid>
       <Grid item md={6}>
         <PaperFormWrapper sx={PaperForm}>
-          <Form
-            sx={{ gap: '2rem' }}
-            onSubmit={handleSubmit}
-            autoComplete="off"
-            noValidate
-          >
+          <Form {...formProps}>
             <SignInModule
               title={{ ...signInTitle, sx: SignInTitle }}
               container={{ spacing: 1 }}

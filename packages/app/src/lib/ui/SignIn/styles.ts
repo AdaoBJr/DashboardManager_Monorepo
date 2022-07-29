@@ -1,5 +1,5 @@
 import { styled } from '@mui/material/styles';
-import { Grid, Paper, SxProps, Theme } from '@mui/material';
+import { Grid, SxProps, Theme } from '@mui/material';
 
 export const GridContainer = styled(Grid, {
   name: 'SignIn',
@@ -10,15 +10,12 @@ export const GridContainer = styled(Grid, {
   maxWidth: 1600
 }));
 
-export const PaperHeader = styled(Paper, {
-  name: 'SignIn',
-  slot: 'header-wrapper'
-})(({ theme }) => ({
-  padding: '.25rem',
+export const ContainerHeader: SxProps<Theme> = {
+  padding: '.25rem 1.25rem',
   boxShadow: 'none',
   filter:
     'drop-shadow(0px 7px 2px rgba(0, 0, 0, 0.14)) drop-shadow(0px 6px 10px rgba(0, 0, 0, 0.12)) drop-shadow(0px 6px 10px rgba(0, 0, 0, 0.2))'
-}));
+};
 
 export const LinkContainer: SxProps<Theme> = {
   display: 'flex',

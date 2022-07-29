@@ -1,12 +1,12 @@
 import React from 'react';
-import { Box, Icon, IconButton, Typography, useMediaQuery } from '@mui/material';
+import { Box, Icon, IconButton, Paper, Typography, useMediaQuery } from '@mui/material';
 
 import { Links } from './components';
 import { Image } from '../../../lib/shared';
 import { HeaderModuleProps } from '../../../types/interface';
 
 export const HeaderModule: React.FC<HeaderModuleProps> = props => (
-  <Box
+  <Paper
     sx={{
       position: props.fixed ? 'fixed' : 'inherit',
       width: '100%',
@@ -39,5 +39,5 @@ export const HeaderModule: React.FC<HeaderModuleProps> = props => (
         </IconButton>
       )}
     </Box>
-  </Box>
+  </Paper>
 );

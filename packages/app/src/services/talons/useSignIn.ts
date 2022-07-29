@@ -6,7 +6,7 @@ import { useAppContext } from 'context';
 import { SignInDomain } from 'types/domain';
 import logo from 'assets/images/logoGoDash.png';
 import { useSignInCustomer } from 'services/infra/requests';
-import { LinkContainer, LinkItem } from 'lib/ui/SignIn/styles';
+import { ContainerHeader, LinkContainer, LinkItem } from 'lib/ui/SignIn/styles';
 
 export const useSignIn = () => {
   const { theme } = useAppContext();
@@ -40,11 +40,18 @@ export const useSignIn = () => {
       headerProps: {
         windowSize,
         src: logo,
+        sx: ContainerHeader,
         linksProps: {
           dataLinks,
           sx: { container: LinkContainer, item: LinkItem }
         }
-      } as HeaderModuleProps
+      } as HeaderModuleProps,
+      formProps: {
+        sx: { gap: '2rem' },
+        onSubmit: handleSubmit,
+        autoComplete: 'off',
+        noValidate: true
+      }
     }),
     [theme, logo, LinkContainer, LinkItem]
   );
