@@ -86,20 +86,7 @@ export const useSignIn = () => {
         style: { margin: '3rem 0 0' }
       } as AnimationModuleProps
     }),
-    [
-      theme,
-      logo,
-      LinkContainer,
-      LinkItem,
-      handleSubmit,
-      handleBlur,
-      signInTitle,
-      SignInTitle,
-      SignInInputs,
-      signInInputs,
-      SignInButton,
-      windowSize
-    ]
+    [theme, handleSubmit, handleBlur]
   );
 
   return { handleBlur, handleSubmit, compProps, windowSize, response };
