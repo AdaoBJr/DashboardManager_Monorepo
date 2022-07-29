@@ -3,10 +3,10 @@ import { Button, Grid } from '@mui/material';
 import { SignInModule } from '@dash/module-customer';
 import { AnimationModule, HeaderModule } from '@dash/module-components';
 
-import { signInInputs, signInTitle } from 'articles';
 import { ReactFC } from 'types/interface';
 import { useSignIn } from 'services/talons';
 import logo from 'assets/images/logoGoDash.png';
+import { signInInputs, signInTitle } from 'articles';
 import { Form, PaperFormWrapper } from 'lib/shared/__styles__';
 import * as Animation from '../../../assets/animations/login.json';
 import {
