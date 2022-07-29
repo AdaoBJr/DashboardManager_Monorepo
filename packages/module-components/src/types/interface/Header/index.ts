@@ -16,6 +16,11 @@ export interface LinksProps {
   sx?: SxDetail;
 }
 
+export interface WindowSize {
+  smDown?: boolean;
+  mdDown?: boolean;
+}
+
 export interface HeaderModuleProps extends ReactFC {
   title?: string;
   linksProps?: LinksProps;
@@ -27,5 +32,5 @@ export interface HeaderModuleProps extends ReactFC {
   heightImg?: string;
   altImg?: string;
   sx?: SxProps<Theme>;
-  theme?: Theme;
+  windownSize?: WindowSize;
 }
