@@ -1,20 +1,16 @@
 import React from 'react';
-import { Button, Grid, useMediaQuery } from '@mui/material';
+import { Button, Grid } from '@mui/material';
 import { SignInModule } from '@dash/module-customer';
 import { AnimationModule, HeaderModule } from '@dash/module-components';
 
-import { useAppContext } from 'context';
 import { ReactFC } from 'types/interface';
 import { useSignIn } from 'services/talons';
-import logo from 'assets/images/logoGoDash.png';
 import { signInInputs, signInTitle } from 'articles';
 import { Form, PaperFormWrapper } from 'lib/shared/__styles__';
 import * as Animation from '../../../assets/animations/login.json';
 import {
   GridContainer,
   PaperHeader,
-  LinkContainer,
-  LinkItem,
   PaperForm,
   SignInTitle,
   SignInInputs,
@@ -22,19 +18,14 @@ import {
 } from './styles';
 
 export const SignIn: React.FC<ReactFC> = () => {
-  const { theme } = useAppContext();
-  const smDown = useMediaQuery(theme.breakpoints.down('sm'));
-  const { handleBlur, handleSubmit, dataLinks } = useSignIn();
+  const { handleBlur, handleSubmit, compProps, windowSize } = useSignIn();
+  const { headerModules } = compProps;
 
   return (
     <GridContainer container>
       <Grid item xs={12}>
         <PaperHeader>
-          <HeaderModule
-            theme={theme}
-            src={logo}
-            linksProps={{ dataLinks, sx: { container: LinkContainer, item: LinkItem } }}
-          />
+          <HeaderModule {...headerModules} />
         </PaperHeader>
       </Grid>
       <Grid item md={6}>
@@ -66,8 +57,8 @@ export const SignIn: React.FC<ReactFC> = () => {
       <Grid item md={6}>
         <AnimationModule
           animation={Animation}
-          width={smDown ? 345 : 500}
-          height={smDown ? 345 : 445}
+          width={windowSize?.smDown ? 345 : 500}
+          height={windowSize?.smDown ? 345 : 445}
           style={{ margin: '3rem 0 0' }}
         />
       </Grid>
