@@ -21,10 +21,7 @@ export const HeaderModule: React.FC<HeaderModuleProps> = props => {
         sx={{
           display: 'flex',
           alignItems: 'center',
-          justifyContent: {
-            xs: props.justify || 'center',
-            md: props.justify || 'space-between'
-          }
+          justifyContent: props.justify || 'space-between'
         }}
       >
         <Box>
@@ -39,7 +36,7 @@ export const HeaderModule: React.FC<HeaderModuleProps> = props => {
         {!smDown && props?.linksProps && <Links {...props?.linksProps} />}
         {smDown && (
           <IconButton>
-            <Icon>menu</Icon>
+            <Icon fontSize="large">menu</Icon>
           </IconButton>
         )}
       </Box>
