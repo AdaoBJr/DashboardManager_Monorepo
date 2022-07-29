@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Grid } from '@mui/material';
+import { Button, Grid, useMediaQuery } from '@mui/material';
 import { SignInModule } from '@dash/module-customer';
 import { AnimationModule, HeaderModule } from '@dash/module-components';
 
@@ -23,6 +23,7 @@ import {
 
 export const SignIn: React.FC<ReactFC> = () => {
   const { theme } = useAppContext();
+  const smDown = useMediaQuery(theme.breakpoints.down('sm'));
   const { handleBlur, handleSubmit, dataLinks } = useSignIn();
 
   return (
@@ -65,8 +66,8 @@ export const SignIn: React.FC<ReactFC> = () => {
       <Grid item md={6}>
         <AnimationModule
           animation={Animation}
-          width={500}
-          height={445}
+          width={smDown ? 345 : 500}
+          height={smDown ? 345 : 445}
           style={{ margin: '3rem 0 0' }}
         />
       </Grid>
