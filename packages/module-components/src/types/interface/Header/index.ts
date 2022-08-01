@@ -12,7 +12,7 @@ interface SxDetail {
 }
 
 export interface LinksProps {
-  dataLinks?: LinkDetail[];
+  links?: LinkDetail[];
   sx?: SxDetail;
 }
 

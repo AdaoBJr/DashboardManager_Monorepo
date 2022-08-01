@@ -6,7 +6,7 @@ import { LinksProps } from '../../../../../types/interface';
 
 export const Links: React.FC<LinksProps> = props => (
   <Box sx={{ ...props?.sx?.container }}>
-    {props?.dataLinks?.map(link => (
+    {props?.links?.map(link => (
       <Link key={link.name} to={link.url}>
         <Typography sx={{ ...props?.sx?.item }}>{link.name}</Typography>
       </Link>
