@@ -1,8 +1,9 @@
 import React from 'react';
 import { Button, Grid } from '@mui/material';
 import { SignInModule } from '@dash/module-customer';
-import { AnimationModule, HeaderModule } from '@dash/module-components';
+import { AnimationModule } from '@dash/module-components';
 
+import { Header } from 'lib/shared';
 import { ReactFC } from 'types/interface';
 import { useSignIn } from 'services/talons';
 import { GridContainer, PaperForm } from './styles';
@@ -16,7 +17,7 @@ export const SignIn: React.FC<ReactFC> = () => {
   return (
     <GridContainer container>
       <Grid item xs={12}>
-        <HeaderModule {...headerProps} />
+        <Header {...headerProps} />
       </Grid>
       <Grid item md={6}>
         <PaperFormWrapper sx={PaperForm}>
