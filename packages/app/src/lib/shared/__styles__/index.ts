@@ -1,5 +1,14 @@
-import { Box, Paper } from '@mui/material';
+import { Box, Grid, Paper } from '@mui/material';
 import { styled } from '@mui/material/styles';
+
+export const GridContainer = styled(Grid, {
+  name: 'SignIn',
+  slot: 'container'
+})(({ theme }) => ({
+  margin: '0 auto',
+  padding: '.25rem 1rem',
+  maxWidth: 1600
+}));
 
 export const BoxFormWrapper = styled(Box, {
   name: 'SharedBoxFormWrapper',

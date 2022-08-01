@@ -4,10 +4,10 @@ import { SignInModule } from '@dash/module-customer';
 import { AnimationModule } from '@dash/module-components';
 
 import { Header } from 'lib/shared';
+import { PaperForm } from './styles';
 import { ReactFC } from 'types/interface';
 import { useSignIn } from 'services/talons';
-import { GridContainer, PaperForm } from './styles';
-import { Form, PaperFormWrapper } from 'lib/shared/__styles__';
+import { GridContainer, Form, PaperFormWrapper } from 'lib/shared/__styles__';
 
 export const SignIn: React.FC<ReactFC> = () => {
   const {

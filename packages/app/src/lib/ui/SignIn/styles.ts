@@ -1,14 +1,4 @@
-import { styled } from '@mui/material/styles';
-import { Grid, SxProps, Theme } from '@mui/material';
-
-export const GridContainer = styled(Grid, {
-  name: 'SignIn',
-  slot: 'container'
-})(({ theme }) => ({
-  margin: '0 auto',
-  padding: '.25rem 1rem',
-  maxWidth: 1600
-}));
+import { SxProps, Theme } from '@mui/material';
 
 export const PaperForm: SxProps<Theme> = {
   width: { xs: '100%', md: '500px' },
