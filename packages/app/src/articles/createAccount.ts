@@ -1,3 +1,10 @@
+export const createAccountTitle = {
+  xs: 12,
+  sm: undefined,
+  id: 'title',
+  name: 'Registre-se'
+};
+
 export const createAccount = [
   { xs: 12, sm: undefined, id: 'firstname', name: 'firstname', label: 'Nome' },
   { xs: 12, sm: undefined, id: 'lastname', name: 'lastname', label: 'Sobrenome' },
