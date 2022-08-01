@@ -5,7 +5,7 @@ import { AnimationModuleProps } from '@dash/module-components';
 
 import { useAppContext } from 'context';
 import { SignInDomain } from 'types/domain';
-import { signInInputs, signInTitle, headerLinks } from 'articles';
+import { signInInputs, signInTitle } from 'articles';
 import * as animation from 'assets/animations/login.json';
 import { useSignInCustomer } from 'services/infra/requests';
 import { SignInTitle, SignInInputs, SignInButton } from 'lib/ui/SignIn/styles';
