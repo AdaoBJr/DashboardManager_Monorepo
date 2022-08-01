@@ -5,7 +5,7 @@ export const createAccountTitle = {
   name: 'Registre-se'
 };
 
-export const createAccount = [
+export const createAccountInputs = [
   { xs: 12, sm: undefined, id: 'firstname', name: 'firstname', label: 'Nome' },
   { xs: 12, sm: undefined, id: 'lastname', name: 'lastname', label: 'Sobrenome' },
   { xs: 12, sm: undefined, id: 'email', name: 'email', label: 'E-mail' },
