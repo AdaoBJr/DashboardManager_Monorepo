@@ -1,16 +1,11 @@
 import { SyntheticEvent, useMemo, useState } from 'react';
 import { ButtonProps, useMediaQuery } from '@mui/material';
 import { SignInProps } from '@dash/module-customer';
-import {
-  AnimationModuleProps,
-  HeaderModuleProps,
-  LinksProps
-} from '@dash/module-components';
+import { AnimationModuleProps } from '@dash/module-components';
 
 import { useAppContext } from 'context';
 import { SignInDomain } from 'types/domain';
-import logo from 'assets/images/logoGoDash.png';
-import { signInInputs, signInTitle } from 'articles';
+import { signInInputs, signInTitle, headerLinks } from 'articles';
 import * as animation from 'assets/animations/login.json';
 import { useSignInCustomer } from 'services/infra/requests';
 import { SignInTitle, SignInInputs, SignInButton } from 'lib/ui/SignIn/styles';
@@ -29,28 +24,10 @@ export const useSignIn = () => {
     mutate(values as any);
   };
 
-  const { links } = useMemo(
-    (): LinksProps => ({
-      links: [
-        { name: 'Home', url: '/home' },
-        { name: 'Quem Somos', url: '/somos' },
-        { name: 'Contato', url: 'contato' }
-      ]
-    }),
-    []
-  );
-
   const windowSize = useMemo(() => ({ smDown }), [smDown, theme]);
 
   const compProps = useMemo(
     () => ({
-      headerProps: {
-        windowSize,
-        src: logo,
-        linksProps: {
-          links
-        }
-      } as HeaderModuleProps,
       formProps: {
         sx: { gap: '2rem' },
         onSubmit: handleSubmit,
