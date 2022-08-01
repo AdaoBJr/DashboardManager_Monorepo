@@ -49,7 +49,7 @@ export const useCreateAccount = () => {
         animation,
         width: windowSize?.smDown ? 345 : 500,
         height: windowSize?.smDown ? 345 : 445,
-        style: { margin: '3rem 0 0' }
+        style: { margin: windowSize?.smDown ? '7rem 0 0' : '13rem 0 0' }
       } as AnimationModuleProps
     }),
     [handleSubmit, handleBlur]
