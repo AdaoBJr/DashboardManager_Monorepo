@@ -11,16 +11,9 @@ import { useAppContext } from 'context';
 import { SignInDomain } from 'types/domain';
 import logo from 'assets/images/logoGoDash.png';
 import { signInInputs, signInTitle } from 'articles';
-import { useSignInCustomer } from 'services/infra/requests';
-import {
-  ContainerHeader,
-  LinkContainer,
-  LinkItem,
-  SignInTitle,
-  SignInInputs,
-  SignInButton
-} from 'lib/ui/SignIn/styles';
 import * as animation from 'assets/animations/login.json';
+import { useSignInCustomer } from 'services/infra/requests';
+import { SignInTitle, SignInInputs, SignInButton } from 'lib/ui/SignIn/styles';
 
 export const useSignIn = () => {
   const { theme } = useAppContext();
@@ -36,9 +29,9 @@ export const useSignIn = () => {
     mutate(values as any);
   };
 
-  const { dataLinks } = useMemo(
+  const { links } = useMemo(
     (): LinksProps => ({
-      dataLinks: [
+      links: [
         { name: 'Home', url: '/home' },
         { name: 'Quem Somos', url: '/somos' },
         { name: 'Contato', url: 'contato' }
@@ -54,10 +47,8 @@ export const useSignIn = () => {
       headerProps: {
         windowSize,
         src: logo,
-        sx: ContainerHeader,
         linksProps: {
-          dataLinks,
-          sx: { container: LinkContainer, item: LinkItem }
+          links
         }
       } as HeaderModuleProps,
       formProps: {
