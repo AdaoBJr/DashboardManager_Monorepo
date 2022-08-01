@@ -1,5 +1,5 @@
 import { SyntheticEvent, useMemo, useState } from 'react';
-import { ButtonProps, useMediaQuery } from '@mui/material';
+import { ButtonProps } from '@mui/material';
 import { SignInProps } from '@dash/module-customer';
 import { AnimationModuleProps } from '@dash/module-components';
 
@@ -12,8 +12,7 @@ import { useSignInCustomer } from 'services/infra/requests';
 import { SignInTitle, SignInInputs } from 'lib/ui/SignIn/styles';
 
 export const useSignIn = () => {
-  const { theme } = useAppContext();
-  const smDown = useMediaQuery(theme.breakpoints.down('sm'));
+  const { windowSize } = useAppContext();
 
   const [values, setValues] = useState({} as SignInDomain);
   const { mutate, response } = useSignInCustomer({ data: values });
@@ -24,8 +23,6 @@ export const useSignIn = () => {
     e.preventDefault();
     mutate(values as any);
   };
-
-  const windowSize = useMemo(() => ({ smDown }), [smDown, theme]);
 
   const compProps = useMemo(
     () => ({
@@ -55,7 +52,7 @@ export const useSignIn = () => {
         style: { margin: '3rem 0 0' }
       } as AnimationModuleProps
     }),
-    [theme, handleSubmit, handleBlur]
+    [handleSubmit, handleBlur]
   );
 
   return { handleBlur, handleSubmit, compProps, windowSize, response };

@@ -1,5 +1,4 @@
 import { useMemo } from 'react';
-import { useMediaQuery } from '@mui/material';
 import { HeaderModuleProps, LinksProps } from '@dash/module-components';
 
 import { headerLinks } from 'articles';
@@ -10,10 +9,7 @@ import { ContainerHeader, LinkContainer, LinkItem } from 'lib/shared/Header/styl
 export interface useHeaderProps extends HeaderModuleProps {}
 
 export const useHeader = (props: useHeaderProps = {}) => {
-  const { theme } = useAppContext();
-  const smDown = useMediaQuery(theme.breakpoints.down('sm'));
-
-  const windowSize = useMemo(() => ({ smDown }), [smDown, theme]);
+  const { windowSize } = useAppContext();
 
   const { links } = useMemo((): LinksProps => ({ ...headerLinks }), []);
 
