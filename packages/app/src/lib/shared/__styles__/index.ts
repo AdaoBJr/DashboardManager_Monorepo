@@ -10,16 +10,6 @@ export const GridContainer = styled(Grid, {
   maxWidth: 1600
 }));
 
-export const BoxFormWrapper = styled(Box, {
-  name: 'SharedBoxFormWrapper',
-  slot: 'wrapper'
-})(({ theme }) => ({
-  display: 'grid',
-  placeItems: 'center',
-  padding: '1rem',
-  height: '100vh'
-}));
-
 export const PaperFormWrapper = styled(Paper, {
   name: 'SharedPaperFormWrapper',
   slot: 'wrapper'

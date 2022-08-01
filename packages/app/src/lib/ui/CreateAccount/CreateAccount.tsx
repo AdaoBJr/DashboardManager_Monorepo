@@ -7,12 +7,7 @@ import { createAccount } from 'articles';
 import { ReactFC } from 'types/interface';
 import { CreateAccountDomain } from 'types/domain';
 import { useCreateCustomer } from 'services/infra/requests';
-import {
-  BoxFormWrapper,
-  Form,
-  GridContainer,
-  PaperFormWrapper
-} from 'lib/shared/__styles__';
+import { Form, GridContainer, PaperFormWrapper } from 'lib/shared/__styles__';
 
 export const CreateAccount: React.FC<ReactFC> = () => {
   const [values, setValues] = useState({} as CreateAccountDomain);
@@ -30,7 +25,7 @@ export const CreateAccount: React.FC<ReactFC> = () => {
       <Grid item xs={12}>
         <Header />
       </Grid>
-      <BoxFormWrapper>
+      <Grid item md={6}>
         <PaperFormWrapper>
           <Form onSubmit={handleSubmit} autoComplete="off" noValidate>
             <CreateAccountModule
@@ -46,7 +41,7 @@ export const CreateAccount: React.FC<ReactFC> = () => {
             </Button>
           </Form>
         </PaperFormWrapper>
-      </BoxFormWrapper>
+      </Grid>
     </GridContainer>
   );
 };
