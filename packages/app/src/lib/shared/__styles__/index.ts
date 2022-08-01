@@ -1,4 +1,4 @@
-import { Box, Grid, Paper } from '@mui/material';
+import { Grid, Paper, SxProps, Theme } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 export const GridContainer = styled(Grid, {
@@ -24,3 +24,15 @@ export const Form = styled('form', {
   display: 'grid',
   gap: '1rem'
 }));
+
+export const SubmitButton: SxProps<Theme> = {
+  marginTop: '1rem',
+  padding: '.625rem 1rem',
+  fontSize: '1rem',
+  fontWeight: 600,
+  boxShadow: theme => theme.shadows[5],
+  '&:hover': {
+    color: '#000',
+    transition: '.5s'
+  }
+};
