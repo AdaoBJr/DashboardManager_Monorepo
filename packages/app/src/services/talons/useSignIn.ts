@@ -5,10 +5,11 @@ import { AnimationModuleProps } from '@dash/module-components';
 
 import { useAppContext } from 'context';
 import { SignInDomain } from 'types/domain';
+import { SubmitButton } from 'lib/shared/__styles__';
 import { signInInputs, signInTitle } from 'articles';
 import * as animation from 'assets/animations/login.json';
 import { useSignInCustomer } from 'services/infra/requests';
-import { SignInTitle, SignInInputs, SignInButton } from 'lib/ui/SignIn/styles';
+import { SignInTitle, SignInInputs } from 'lib/ui/SignIn/styles';
 
 export const useSignIn = () => {
   const { theme } = useAppContext();
@@ -45,7 +46,7 @@ export const useSignIn = () => {
         type: 'submit',
         variant: 'contained',
         onClick: handleSubmit,
-        sx: SignInButton
+        sx: SubmitButton
       } as ButtonProps,
       animationProps: {
         animation,

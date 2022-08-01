@@ -19,15 +19,3 @@ export const SignInInputs: SxProps<Theme> = {
   '& .MuiInputBase-input': { p: '10px 12px' },
   '& .MuiInputLabel-root': { top: '-5px' }
 };
-
-export const SignInButton: SxProps<Theme> = {
-  marginTop: '1rem',
-  padding: '.625rem 1rem',
-  fontSize: '1rem',
-  fontWeight: 600,
-  boxShadow: theme => theme.shadows[5],
-  '&:hover': {
-    color: '#000',
-    transition: '.5s'
-  }
-};
