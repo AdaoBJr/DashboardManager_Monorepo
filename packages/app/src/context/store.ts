@@ -7,7 +7,11 @@ export const THEME = {
   themeMode: 'light' as string
 };
 
-export const initialState = { ...THEME };
+export const WINDOW = {
+  windowSize: { smDown: false }
+};
+
+const initialState = { ...THEME, ...WINDOW };
 
 const store = createContext(initialState);
 
