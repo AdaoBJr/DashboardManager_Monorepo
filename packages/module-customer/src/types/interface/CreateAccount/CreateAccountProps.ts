@@ -1,9 +1,10 @@
 import { GridProps, TextFieldProps } from '@mui/material';
+import { InputArticles, TitleArticles } from '../../shared';
 import { CreateAccountDomain } from 'types/domain';
-import { InputArticles } from '../../shared';
 import { ReactFC } from '../React';
 
 export interface CreateAccountProps extends ReactFC {
+  title?: TitleArticles;
   container?: GridProps;
   item?: GridProps;
   input?: TextFieldProps;
