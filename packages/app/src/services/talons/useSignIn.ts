@@ -1,48 +1,63 @@
-import { SyntheticEvent, useMemo, useState } from 'react';
+import { useMemo } from 'react';
+import * as yup from 'yup';
 import { ButtonProps } from '@mui/material';
 import { SignInProps } from '@dash/module-customer';
+import { FormikConfig, FormikHelpers } from 'formik';
 import { AnimationModuleProps } from '@dash/module-components';
 
 import { useAppContext } from 'context';
 import { SignInDomain } from 'types/domain';
+import { valuesLoginInittial } from 'types/shared';
 import { SubmitButton } from 'lib/shared/__styles__';
 import { signInInputs, signInTitle } from 'articles';
 import * as animation from 'assets/animations/login.json';
-import { useSignInCustomer } from 'services/infra/requests';
+// import { useSignInCustomer } from 'services/infra/requests';
 import { SignInTitle, SignInInputs } from 'lib/ui/SignIn/styles';
 
 export const useSignIn = () => {
   const { windowSize } = useAppContext();
 
-  const [values, setValues] = useState({} as SignInDomain);
-  const { mutate, response } = useSignInCustomer({ data: values });
+  // const { mutate, response } = useSignInCustomer({ data: values });
 
-  const handleBlur = (value: SignInDomain) => setValues({ ...values, ...value });
+  const formValidation = useMemo(
+    () =>
+      yup.object().shape({
+        email: yup
+          .string()
+          .email('Entre com um e-mail válido.')
+          .required('Obrigatório.'),
+        password: yup
+          .string()
+          .min(4)
+          .required('Obrigatório.')
+      }),
+    []
+  );
 
-  const handleSubmit = async (e: SyntheticEvent) => {
-    e.preventDefault();
-    mutate(values as any);
+  const handleSubmit = (values: SignInDomain, props: FormikHelpers<SignInDomain>) => {
+    console.log('enviando dados...', values);
   };
 
   const compProps = useMemo(
     () => ({
-      formProps: {
-        sx: { gap: '2rem' },
+      formikProps: {
         onSubmit: handleSubmit,
-        autoComplete: 'off',
-        noValidate: true
+        initialValues: valuesLoginInittial,
+        validationSchema: formValidation
+      } as FormikConfig<SignInDomain>,
+      formProps: {
+        // autoComplete: 'off',
+        sx: { gap: '2rem' }
       },
       signInModuleProps: {
         title: { ...signInTitle, sx: SignInTitle },
         container: { spacing: 1 },
         input: { sx: SignInInputs },
-        articles: signInInputs,
-        onBlur: handleBlur
+        articles: signInInputs
       } as SignInProps,
       buttonProps: {
         type: 'submit',
         variant: 'contained',
-        onClick: handleSubmit,
         sx: SubmitButton
       } as ButtonProps,
       animationProps: {
@@ -52,8 +67,8 @@ export const useSignIn = () => {
         style: { margin: '3rem 0 0' }
       } as AnimationModuleProps
     }),
-    [handleSubmit, handleBlur]
+    [handleSubmit, formValidation]
   );
 
-  return { handleBlur, handleSubmit, compProps, windowSize, response };
+  return { handleSubmit, compProps, windowSize };
 };
