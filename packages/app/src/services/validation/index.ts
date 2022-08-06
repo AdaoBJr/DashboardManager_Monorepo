@@ -3,7 +3,7 @@ import * as yup from 'yup';
 export const email = yup
   .string()
   .email('Entre com um e-mail válido.')
-  .required('Obrigatório.');
+  .required('Campo obrigatório.');
 
 export const password = yup
   .string()
@@ -11,4 +11,4 @@ export const password = yup
     message:
       'A senha deve ter no mínimo 8 caracteres, com letra maiúscula, minúscula, número e caractere especial.'
   })
-  .required('Obrigatório.');
+  .required('Campo obrigatório.');
