@@ -11,6 +11,7 @@ import { valuesLoginInittial } from 'types/shared';
 import { SubmitButton } from 'lib/shared/__styles__';
 import { signInInputs, signInTitle } from 'articles';
 import * as animation from 'assets/animations/login.json';
+import { email, password } from 'services/validation';
 // import { useSignInCustomer } from 'services/infra/requests';
 import { SignInTitle, SignInInputs } from 'lib/ui/SignIn/styles';
 
@@ -21,23 +22,7 @@ export const useSignIn = () => {
   // const { mutate, response } = useSignInCustomer({ data: values });
   const handleShowPassword = useCallback(() => setShowPwd(prev => !prev), [setShowPwd]);
 
-  const formValidation = useMemo(
-    () =>
-      yup.object().shape({
-        email: yup
-          .string()
-          .email('Entre com um e-mail válido.')
-          .required('Obrigatório.'),
-        password: yup
-          .string()
-          .matches(/^(?=.*[A-Z][a-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/, {
-            message:
-              'A senha deve ter no mínimo 8 caracteres, com letra maiúscula, minúscula, número e caractere especial.'
-          })
-          .required('Obrigatório.')
-      }),
-    []
-  );
+  const formValidation = useMemo(() => yup.object().shape({ email, password }), []);
 
   const handleErrors = (error?: boolean) =>
     setFormErrors(error === undefined ? true : error);
