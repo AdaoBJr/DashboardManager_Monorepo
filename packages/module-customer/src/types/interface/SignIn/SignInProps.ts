@@ -9,5 +9,6 @@ export interface SignInProps extends ReactFC {
   item?: GridProps;
   input?: TextFieldProps;
   articles?: InputArticles[];
-  onBlur?: (values: SignInDomain) => void;
+  showPwd?: boolean;
+  handleShowPassword?: () => void;
 }
