@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import * as yup from 'yup';
 import { ButtonProps } from '@mui/material';
 import { SignInProps } from '@dash/module-customer';
@@ -17,8 +17,8 @@ import { SignInTitle, SignInInputs } from 'lib/ui/SignIn/styles';
 export const useSignIn = () => {
   const { windowSize } = useAppContext();
   const [showPwd, setShowPwd] = useState(false);
+  const [formErrors, setFormErrors] = useState<boolean>(true);
   // const { mutate, response } = useSignInCustomer({ data: values });
-
   const handleShowPassword = useCallback(() => setShowPwd(prev => !prev), [setShowPwd]);
 
   const formValidation = useMemo(
@@ -39,9 +39,14 @@ export const useSignIn = () => {
     []
   );
 
+  const handleErrors = (error?: boolean) =>
+    setFormErrors(error === undefined ? true : error);
+
   const handleSubmit = (values: SignInDomain, props: FormikHelpers<SignInDomain>) => {
     console.log('enviando dados...', values);
   };
+
+  useEffect(handleErrors, []);
 
   const compProps = useMemo(
     () => ({
@@ -60,11 +65,13 @@ export const useSignIn = () => {
         input: { sx: SignInInputs },
         articles: signInInputs,
         showPwd,
+        handleErrors,
         handleShowPassword
       } as SignInProps,
       buttonProps: {
         type: 'submit',
         variant: 'contained',
+        disabled: formErrors,
         sx: SubmitButton
       } as ButtonProps,
       animationProps: {
