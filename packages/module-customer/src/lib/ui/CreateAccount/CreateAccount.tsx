@@ -1,9 +1,10 @@
-import React, { ChangeEvent, useCallback, useState } from 'react';
+import React from 'react';
+import { ErrorMessage, Field } from 'formik';
 import { Grid, Typography } from '@mui/material';
 import { InputText } from '@dash/module-components';
 
-import { CreateAccountDomain } from 'types/domain';
 import { CreateAccountProps } from '../../../types/interface';
+import { useCreateAccount } from '../../../services/talons';
 
 export const CreateAccountModule: React.FC<CreateAccountProps> = ({
   title,
@@ -11,15 +12,9 @@ export const CreateAccountModule: React.FC<CreateAccountProps> = ({
   item,
   input,
   articles,
-  onBlur
+  handleErrors
 }) => {
-  const [values, setValues] = useState({} as CreateAccountDomain);
-
-  const handleChange = useCallback(
-    ({ target }: ChangeEvent<HTMLInputElement>) =>
-      setValues({ ...values, [target.name]: target.value }),
-    [setValues]
-  );
+  useCreateAccount({ handleErrors });
 
   return (
     <Grid container {...container}>
@@ -32,11 +27,11 @@ export const CreateAccountModule: React.FC<CreateAccountProps> = ({
       )}
       {articles?.map(data => (
         <Grid key={data.id} item xs={data.xs} sm={data.sm} {...item}>
-          <InputText
+          <Field
+            as={InputText}
             {...data}
             variant={input?.variant || 'outlined'}
-            onChange={handleChange}
-            onBlur={() => onBlur?.({ ...values })}
+            helperText={<ErrorMessage name={data.name} />}
             {...input}
           />
         </Grid>
