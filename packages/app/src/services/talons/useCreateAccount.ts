@@ -1,48 +1,81 @@
-import { SyntheticEvent, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import * as yup from 'yup';
 import { ButtonProps } from '@mui/material';
+import { FormikConfig, FormikHelpers } from 'formik';
 import { CreateAccountProps } from '@dash/module-customer';
 import { AnimationModuleProps } from '@dash/module-components';
 
 import { useAppContext } from 'context';
 import { CreateAccountDomain } from 'types/domain';
 import { SubmitButton } from 'lib/shared/__styles__';
+import { valuesRegisterInittial } from 'types/shared';
+import {
+  firstname,
+  lastname,
+  email,
+  dateOfBirth,
+  cpf,
+  country,
+  telephone,
+  password,
+  password_confirm
+} from 'services/validation';
+// import { useCreateCustomer } from 'services/infra/requests';
 import * as animation from 'assets/animations/register.json';
-import { useCreateCustomer } from 'services/infra/requests';
 import { createAccountInputs, createAccountTitle } from 'articles';
 import { CreateAccountInputs, CreateAccountTitle } from 'lib/ui/CreateAccount/styles';
 
 export const useCreateAccount = () => {
   const { windowSize } = useAppContext();
+  const [formErrors, setFormErrors] = useState<boolean>(true);
 
-  const [values, setValues] = useState({} as CreateAccountDomain);
-  const { mutate, response } = useCreateCustomer({ values });
+  // const { mutate, response } = useCreateCustomer({ values });
 
-  const handleBlur = (value: CreateAccountDomain) => setValues({ ...values, ...value });
+  const formValidation = useMemo(
+    () =>
+      yup.object().shape({
+        firstname,
+        lastname,
+        email,
+        dateOfBirth,
+        cpf,
+        country,
+        telephone,
+        password,
+        password_confirm
+      }),
+    []
+  );
 
-  const handleSubmit = async (e: SyntheticEvent) => {
-    e.preventDefault();
-    mutate(values as any);
+  const handleSubmit = (
+    values: CreateAccountDomain,
+    props: FormikHelpers<CreateAccountDomain>
+  ) => {
+    console.log('enviando dados...', values);
   };
 
   const compProps = useMemo(
     () => ({
-      formProps: {
-        sx: { gap: '2rem' },
+      formikProps: {
         onSubmit: handleSubmit,
-        autoComplete: 'off',
-        noValidate: true
+        initialValues: valuesRegisterInittial,
+        validationSchema: formValidation
+      } as FormikConfig<CreateAccountDomain>,
+      formProps: {
+        sx: { gap: '2rem' }
+        // autoComplete: 'off'
       },
       createAccountModuleProps: {
         title: { ...createAccountTitle, sx: CreateAccountTitle },
         container: { spacing: 1 },
         input: { sx: CreateAccountInputs },
         articles: createAccountInputs,
-        onBlur: handleBlur
+        handleErrors
       } as CreateAccountProps,
       buttonProps: {
         type: 'submit',
         variant: 'contained',
-        onClick: handleSubmit,
+        disabled: formErrors,
         sx: SubmitButton
       } as ButtonProps,
       animationProps: {
@@ -52,8 +85,14 @@ export const useCreateAccount = () => {
         style: { margin: windowSize?.smDown ? '7rem 0 0' : '13rem 0 0' }
       } as AnimationModuleProps
     }),
-    [handleSubmit, handleBlur]
+    [handleSubmit, formValidation]
   );
 
-  return { mutate, handleBlur, handleSubmit, compProps, response };
+  function handleErrors(error?: boolean) {
+    setFormErrors(error === undefined ? true : error);
+  }
+
+  useEffect(handleErrors, []);
+
+  return { handleSubmit, compProps };
 };

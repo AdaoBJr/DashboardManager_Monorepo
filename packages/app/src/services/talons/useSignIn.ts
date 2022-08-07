@@ -10,8 +10,8 @@ import { SignInDomain } from 'types/domain';
 import { valuesLoginInittial } from 'types/shared';
 import { SubmitButton } from 'lib/shared/__styles__';
 import { signInInputs, signInTitle } from 'articles';
-import * as animation from 'assets/animations/login.json';
 import { email, password } from 'services/validation';
+import * as animation from 'assets/animations/login.json';
 // import { useSignInCustomer } from 'services/infra/requests';
 import { SignInTitle, SignInInputs } from 'lib/ui/SignIn/styles';
 
@@ -24,14 +24,9 @@ export const useSignIn = () => {
 
   const formValidation = useMemo(() => yup.object().shape({ email, password }), []);
 
-  const handleErrors = (error?: boolean) =>
-    setFormErrors(error === undefined ? true : error);
-
   const handleSubmit = (values: SignInDomain, props: FormikHelpers<SignInDomain>) => {
     console.log('enviando dados...', values);
   };
-
-  useEffect(handleErrors, []);
 
   const compProps = useMemo(
     () => ({
@@ -68,6 +63,12 @@ export const useSignIn = () => {
     }),
     [handleSubmit, formValidation]
   );
+
+  function handleErrors(error?: boolean) {
+    return setFormErrors(error === undefined ? true : error);
+  }
+
+  useEffect(handleErrors, []);
 
   return { handleSubmit, compProps, windowSize };
 };
