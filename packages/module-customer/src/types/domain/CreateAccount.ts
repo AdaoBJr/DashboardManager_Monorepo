@@ -3,7 +3,7 @@ export interface CreateAccountDomain {
   lastname: string;
   email: string;
   dateOfBirth: string;
-  gender: number;
+  gender: string[];
   cpf: string;
   country: string;
   telephone: string;
