@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import { ErrorMessage, Field } from 'formik';
-import { Grid, Typography } from '@mui/material';
+import { Grid, MenuItem, Typography } from '@mui/material';
 import { InputText } from '@dash/module-components';
 
-import { CreateAccountProps } from '../../../types/interface';
 import { useCreateAccount } from '../../../services/talons';
+import { CreateAccountProps } from '../../../types/interface';
 
 export const CreateAccountModule: React.FC<CreateAccountProps> = ({
   title,
@@ -14,7 +14,9 @@ export const CreateAccountModule: React.FC<CreateAccountProps> = ({
   articles,
   handleErrors
 }) => {
-  useCreateAccount({ handleErrors });
+  const { dropValues, isDate, handleDropChange } = useCreateAccount({
+    handleErrors
+  });
 
   return (
     <Grid container {...container}>
@@ -27,13 +29,35 @@ export const CreateAccountModule: React.FC<CreateAccountProps> = ({
       )}
       {articles?.map(data => (
         <Grid key={data.id} item xs={data.xs} sm={data.sm} {...item}>
-          <Field
-            as={InputText}
-            {...data}
-            variant={input?.variant || 'outlined'}
-            helperText={<ErrorMessage name={data.name} />}
-            {...input}
-          />
+          {data.select && data.inittial ? (
+            <Field
+              as={InputText}
+              value={dropValues[data.name]}
+              type={isDate(data.name, data.id) ? 'date' : 'text'}
+              InputLabelProps={isDate(data.name, data.id) ? { shrink: true } : {}}
+              {...data}
+              variant={input?.variant || 'outlined'}
+              helperText={<ErrorMessage name={data.name} />}
+              onChange={handleDropChange}
+              {...input}
+            >
+              {data.inittial?.map(item => (
+                <MenuItem key={item} value={item}>
+                  {item}
+                </MenuItem>
+              ))}
+            </Field>
+          ) : (
+            <Field
+              as={InputText}
+              type={isDate(data.name, data.id) ? 'date' : 'text'}
+              InputLabelProps={isDate(data.name, data.id) ? { shrink: true } : {}}
+              {...data}
+              variant={input?.variant || 'outlined'}
+              helperText={<ErrorMessage name={data.name} />}
+              {...input}
+            />
+          )}
         </Grid>
       ))}
     </Grid>
