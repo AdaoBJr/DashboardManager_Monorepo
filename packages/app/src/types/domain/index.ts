@@ -8,9 +8,9 @@ export interface CreateAccountDomain {
   lastname: string;
   email: string;
   dateOfBirth: string;
-  gender: number;
+  gender: number | string[];
   cpf: string;
-  country: string;
+  country: string[];
   telephone: string;
   subscribe: boolean;
   password: string;
