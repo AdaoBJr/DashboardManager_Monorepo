@@ -6,16 +6,17 @@ import { FormikConfig, FormikHelpers } from 'formik';
 import { AnimationModuleProps } from '@dash/module-components';
 
 import { useAppContext } from 'context';
+import { form } from 'services/validation';
 import { SignInDomain } from 'types/domain';
 import { valuesLoginInittial } from 'types/shared';
 import { SubmitButton } from 'lib/shared/__styles__';
 import { signInInputs, signInTitle } from 'articles';
-import { email, password } from 'services/validation';
 import * as animation from 'assets/animations/login.json';
 // import { useSignInCustomer } from 'services/infra/requests';
 import { SignInTitle, SignInInputs } from 'lib/ui/SignIn/styles';
 
 export const useSignIn = () => {
+  const { email, password } = form;
   const { windowSize } = useAppContext();
   const [showPwd, setShowPwd] = useState(false);
   const [formErrors, setFormErrors] = useState<boolean>(true);
