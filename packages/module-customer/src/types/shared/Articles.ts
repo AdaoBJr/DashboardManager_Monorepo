@@ -6,6 +6,8 @@ export interface InputArticles {
   id: string;
   name: string;
   label: string;
+  select: boolean;
+  inittial?: any[];
 }
 
 export interface TitleArticles {
