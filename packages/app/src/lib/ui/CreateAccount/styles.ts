@@ -2,7 +2,7 @@ import { SxProps, Theme } from '@mui/material';
 
 export const PaperForm: SxProps<Theme> = {
   width: { xs: '100%', md: '500px' },
-  height: { xs: '100%', md: '730px' },
+  maxHeight: { xs: '100%', md: '900px' },
   marginLeft: { xs: 0, md: '10%', lg: '30%' },
   marginTop: '4rem',
   boxShadow: theme => theme.shadows[13]
