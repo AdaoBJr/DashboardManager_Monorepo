@@ -1,22 +1,22 @@
 import React, { useMemo } from 'react';
-import { TextFieldProps, TextField } from '@mui/material';
-import { ErrorMessage } from 'formik';
+import { ErrorMessage, Field } from 'formik';
+import { TextField, TextFieldProps } from '@mui/material';
 
 import { InputDateModuleProps } from '../../../types/interface';
 
 export const InputDateModule: React.FC<InputDateModuleProps> = props => {
-  const { input, data } = props;
+  const { input, data, ...rest } = props;
 
   const inputDateProps = useMemo<TextFieldProps>(
     () => ({
       ...data,
       ...input,
-      InputLabelProps: { shrink: true },
+      ...rest,
       variant: input?.variant || 'outlined',
-      helperText: <ErrorMessage name={data.name} />
+      InputLabelProps: { shrink: true }
     }),
     []
   );
 
-  return <TextField {...inputDateProps} />;
+  return <Field as={TextField} {...inputDateProps} />;
 };
