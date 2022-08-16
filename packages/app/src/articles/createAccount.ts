@@ -1,5 +1,5 @@
-import { valuesRegisterInittial } from 'types/shared';
-const { country, gender } = valuesRegisterInittial;
+import { dropdownOptions } from 'types/shared';
+const { country, gender } = dropdownOptions;
 
 export const createAccountTitle = {
   xs: 12,
@@ -15,7 +15,7 @@ export const createAccountInputs = [
     id: 'firstname',
     name: 'firstname',
     label: 'Nome',
-    select: false
+    type: 'text'
   },
   {
     xs: 12,
@@ -23,42 +23,15 @@ export const createAccountInputs = [
     id: 'lastname',
     name: 'lastname',
     label: 'Sobrenome',
-    select: false
+    type: 'text'
   },
   {
     xs: 12,
-    sm: undefined,
+    sm: 6,
     id: 'email',
     name: 'email',
     label: 'E-mail',
-    select: false
-  },
-  {
-    xs: 12,
-    sm: 6,
-    id: 'dateOfBirth',
-    name: 'dateOfBirth',
-    label: 'Data de aniversário',
-    select: false
-  },
-  {
-    xs: 12,
-    sm: 6,
-    id: 'gender',
-    name: 'gender',
-    label: 'Selecione um Gênero:',
-    select: true,
-    inittial: gender
-  },
-  { xs: 12, sm: 6, id: 'cpf', name: 'cpf', label: 'CPF', select: false },
-  {
-    xs: 12,
-    sm: 6,
-    id: 'country',
-    name: 'country',
-    label: 'Selecione um País:',
-    select: true,
-    inittial: country
+    type: 'text'
   },
   {
     xs: 12,
@@ -66,15 +39,34 @@ export const createAccountInputs = [
     id: 'telephone',
     name: 'telephone',
     label: 'Telefone',
-    select: false
+    type: 'text'
   },
   {
     xs: 12,
     sm: 6,
-    id: 'subscribe',
-    name: 'subscribe',
-    label: 'Se Inscreva',
-    select: false
+    id: 'dateOfBirth',
+    name: 'dateOfBirth',
+    label: 'Data de aniversário',
+    type: 'date'
+  },
+  {
+    xs: 12,
+    sm: 6,
+    id: 'gender',
+    name: 'gender',
+    label: 'Selecione um gênero',
+    type: 'dropdown',
+    options: gender
+  },
+  { xs: 12, sm: 6, id: 'cpf', name: 'cpf', label: 'CPF', select: false },
+  {
+    xs: 12,
+    sm: 6,
+    id: 'country',
+    name: 'country',
+    label: 'Selecione um país:',
+    type: 'dropdown',
+    options: country
   },
   {
     xs: 12,
@@ -82,7 +74,7 @@ export const createAccountInputs = [
     id: 'password',
     name: 'password',
     label: 'Senha',
-    select: false
+    type: 'text'
   },
   {
     xs: 12,
@@ -90,6 +82,14 @@ export const createAccountInputs = [
     id: 'password_confirm',
     name: 'password_confirm',
     label: 'Confirme a senha',
-    select: false
+    type: 'text'
+  },
+  {
+    xs: 12,
+    sm: undefined,
+    id: 'subscribe',
+    name: 'subscribe',
+    label: 'Se Inscreva',
+    type: 'checkbox'
   }
 ];
