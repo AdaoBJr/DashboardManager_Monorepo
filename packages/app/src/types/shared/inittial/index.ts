@@ -8,11 +8,16 @@ export const valuesRegisterInittial = {
   lastname: '',
   email: '',
   dateOfBirth: 'dd/mm/aaaa',
-  gender: ['Selecione', 'Masculino', 'Feminino'],
+  gender: '',
   cpf: '',
-  country: ['Selecione', 'Brasil', 'EUA', 'Japão', 'Chile', 'Alemanha'],
+  country: '',
   telephone: '',
   subscribe: false,
   password: '',
   password_confirm: ''
+};
+
+export const dropdownOptions = {
+  gender: ['Masculino', 'Feminino'],
+  country: ['Brasil', 'EUA', 'Japão', 'Chile', 'Alemanha']
 };
