@@ -5,7 +5,7 @@ import { ErrorMessage, useField, useFormikContext } from 'formik';
 import { DropdownModuleProps } from '../../../types/interface';
 
 export const DropdownModule: React.FC<DropdownModuleProps> = props => {
-  const { input, data, ...rest } = props;
+  const { input, data } = props;
   const [field, meta] = useField(data.name);
   const { setFieldValue } = useFormikContext();
 
@@ -20,7 +20,6 @@ export const DropdownModule: React.FC<DropdownModuleProps> = props => {
       ...field,
       ...data,
       ...input,
-      ...rest,
       select: true,
       fullWidth: true,
       variant: input?.variant || 'outlined',
