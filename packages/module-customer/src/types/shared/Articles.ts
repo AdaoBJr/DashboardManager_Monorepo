@@ -6,8 +6,8 @@ export interface InputArticles {
   id: string;
   name: string;
   label: string;
-  select: boolean;
-  inittial?: any[];
+  type: 'text' | 'checkbox' | 'select' | 'date' | 'dropdown';
+  options?: string[];
 }
 
 export interface TitleArticles {
