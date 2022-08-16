@@ -1,4 +1,9 @@
 import React from 'react';
-import { TextField, TextFieldProps } from '@mui/material';
+import { ErrorMessage } from 'formik';
+import { TextField } from '@mui/material';
 
-export const InputText: React.FC<TextFieldProps> = props => <TextField {...props} />;
+import { InputTextModuleProps } from '../../../types/interface';
+
+export const InputTextModule: React.FC<InputTextModuleProps> = ({ data, input }) => (
+  <TextField {...data} {...input} helperText={<ErrorMessage name={data.name} />} />
+);
