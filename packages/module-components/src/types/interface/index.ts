@@ -1,6 +1,7 @@
 export * from './React';
 export * from './Header';
 export * from './Animation';
+export * from './InputRender';
 export * from './InputText';
 export * from './Dropdown';
 export * from './InputDate';
