@@ -7,7 +7,7 @@ export const valuesRegisterInittial = {
   firstname: '',
   lastname: '',
   email: '',
-  dateOfBirth: 'dd/mm/aaaa',
+  dateOfBirth: '',
   gender: '',
   cpf: '',
   country: '',
