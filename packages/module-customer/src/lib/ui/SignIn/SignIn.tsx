@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field, ErrorMessage } from 'formik';
-import { InputText } from '@dash/module-components';
+import { InputTextModule } from '@dash/module-components';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { Grid, IconButton, InputAdornment, Typography } from '@mui/material';
 
@@ -31,11 +31,10 @@ export const SignInModule: React.FC<SignInProps> = ({
       {articles?.map(data => (
         <Grid key={data.id} item xs={data.xs} sm={data.sm} {...item}>
           <Field
-            as={InputText}
+            as={InputTextModule}
             {...data}
             type={showPwd || data.name !== 'password' ? 'text' : 'password'}
             variant={input?.variant || 'outlined'}
-            helperText={<ErrorMessage name={data.name} />}
             InputProps={{
               endAdornment: data.name === 'password' && (
                 <InputAdornment position="end">
