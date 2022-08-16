@@ -1,3 +1,4 @@
+import { ErrorMessage } from 'formik';
 import { dropdownOptions } from 'types/shared';
 const { country, gender } = dropdownOptions;
 
@@ -12,84 +13,100 @@ export const createAccountInputs = [
   {
     xs: 12,
     sm: undefined,
+    type: 'text',
     id: 'firstname',
     name: 'firstname',
     label: 'Nome',
-    type: 'text'
+    helperText: <ErrorMessage name="firstname" />
   },
   {
     xs: 12,
     sm: undefined,
+    type: 'text',
     id: 'lastname',
     name: 'lastname',
     label: 'Sobrenome',
-    type: 'text'
+    helperText: <ErrorMessage name="lastname" />
   },
   {
     xs: 12,
     sm: 6,
+    type: 'text',
     id: 'email',
     name: 'email',
     label: 'E-mail',
-    type: 'text'
+    helperText: <ErrorMessage name="email" />
   },
   {
     xs: 12,
     sm: 6,
+    type: 'text',
     id: 'telephone',
     name: 'telephone',
     label: 'Telefone',
-    type: 'text'
+    helperText: <ErrorMessage name="telephone" />
   },
   {
     xs: 12,
     sm: 6,
+    type: 'date',
     id: 'dateOfBirth',
     name: 'dateOfBirth',
     label: 'Data de aniversário',
-    type: 'date'
+    helperText: <ErrorMessage name="dateOfBirth" />
   },
   {
     xs: 12,
     sm: 6,
+    type: 'dropdown',
     id: 'gender',
     name: 'gender',
     label: 'Selecione um gênero',
-    type: 'dropdown',
-    options: gender
+    options: gender,
+    helperText: <ErrorMessage name="gender" />
   },
-  { xs: 12, sm: 6, id: 'cpf', name: 'cpf', label: 'CPF', select: false },
+  {
+    xs: 12,
+    sm: 6,
+    id: 'cpf',
+    name: 'cpf',
+    label: 'CPF',
+    helperText: <ErrorMessage name="cpf" />
+  },
   {
     xs: 12,
     sm: 6,
     id: 'country',
     name: 'country',
-    label: 'Selecione um país:',
     type: 'dropdown',
-    options: country
+    label: 'Selecione um país:',
+    options: country,
+    helperText: <ErrorMessage name="country" />
   },
   {
     xs: 12,
     sm: undefined,
+    type: 'text',
     id: 'password',
     name: 'password',
     label: 'Senha',
-    type: 'text'
+    helperText: <ErrorMessage name="password" />
   },
   {
     xs: 12,
     sm: undefined,
+    type: 'text',
     id: 'password_confirm',
     name: 'password_confirm',
     label: 'Confirme a senha',
-    type: 'text'
+    helperText: <ErrorMessage name="password_confirm" />
   },
   {
     xs: 12,
     sm: undefined,
     id: 'subscribe',
+    type: 'checkbox',
     name: 'subscribe',
-    label: 'Se Inscreva',
-    type: 'checkbox'
+    label: 'Se Inscreva'
   }
 ];
