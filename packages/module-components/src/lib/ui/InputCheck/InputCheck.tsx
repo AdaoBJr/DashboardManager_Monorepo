@@ -1,4 +1,5 @@
 import React, { ChangeEvent, useCallback, useMemo } from 'react';
+import { Field, useField, useFormikContext } from 'formik';
 import {
   Checkbox,
   FormControl,
@@ -6,7 +7,6 @@ import {
   FormGroup,
   FormLabel
 } from '@mui/material';
-import { ErrorMessage, useField, useFormikContext } from 'formik';
 
 import { InputCheckModuleProps } from '../../../types/interface';
 
@@ -15,7 +15,7 @@ interface configFormControl {
 }
 
 export const InputCheckModule: React.FC<InputCheckModuleProps> = props => {
-  const { input, data, ...rest } = props;
+  const { data } = props;
   const [field, meta] = useField(data.name);
   const { setFieldValue } = useFormikContext();
 
@@ -28,7 +28,7 @@ export const InputCheckModule: React.FC<InputCheckModuleProps> = props => {
   const inputCheckProps = useMemo(
     () => ({
       ...field,
-      // helperText: <ErrorMessage name={data.name} />,
+      ...data,
       onChange: handleChange
     }),
     [props]
@@ -43,7 +43,8 @@ export const InputCheckModule: React.FC<InputCheckModuleProps> = props => {
     <FormControl {...configFormControl}>
       <FormLabel component="legend">{data?.legend}</FormLabel>
       <FormGroup>
-        <FormControlLabel
+        <Field
+          as={FormControlLabel}
           control={<Checkbox {...inputCheckProps} />}
           label={data.label}
         />
