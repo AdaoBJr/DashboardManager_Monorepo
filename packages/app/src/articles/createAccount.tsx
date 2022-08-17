@@ -107,6 +107,6 @@ export const createAccountInputs = [
     id: 'subscribe',
     type: 'checkbox',
     name: 'subscribe',
-    label: 'Se Inscreva'
+    label: 'Inscreva-se'
   }
 ];
