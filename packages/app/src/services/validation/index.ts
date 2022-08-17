@@ -25,6 +25,8 @@ export const form = {
   cpf: Yup.string()
     .min(11, 'Entre com o número de cpf com 11 dígitos e sem o hífen.')
     .required('Campo obrigatório.'),
+  gender: Yup.string().required('Campo obrigatório.'),
+  country: Yup.string().required('Campo obrigatório.'),
   telephone: Yup.string()
     .min(11, 'Entre com o número de telefone com o DDD.')
     .required('Campo obrigatório.')

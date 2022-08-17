@@ -28,7 +28,9 @@ export const useCreateAccount = () => {
         lastname: form.lastname,
         email: form.email,
         dateOfBirth: form.dateOfBirth,
+        gender: form.gender,
         cpf: form.cpf,
+        country: form.country,
         telephone: form.telephone,
         password: form.password,
         password_confirm: form.password_confirm
