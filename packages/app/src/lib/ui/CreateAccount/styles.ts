@@ -16,6 +16,7 @@ export const CreateAccountTitle: SxProps<Theme> = {
 export const CreateAccountInputs: SxProps<Theme> = {
   width: '100%',
   margin: '.25rem 0',
+  '& .MuiInputLabel-root': { top: '-5px' },
   '& .MuiInputBase-input': { p: '10px 12px' },
-  '& .MuiInputLabel-root': { top: '-5px' }
+  '& .MuiFormHelperText-root': { color: 'red' }
 };
