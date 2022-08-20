@@ -40,7 +40,7 @@ export const createAccountInputs = [
   {
     xs: 12,
     sm: 6,
-    type: 'text',
+    type: 'phone',
     id: 'telephone',
     name: 'telephone',
     label: 'Telefone',
