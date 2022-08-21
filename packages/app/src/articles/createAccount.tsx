@@ -1,4 +1,5 @@
 import { ErrorMessage } from 'formik';
+import { cpf, phone } from 'services/utils/mask';
 import { dropdownOptions } from 'types/shared';
 const { country, gender } = dropdownOptions;
 
@@ -40,6 +41,7 @@ export const createAccountInputs = [
   {
     xs: 12,
     sm: 6,
+    mask: phone,
     type: 'phone',
     id: 'telephone',
     name: 'telephone',
@@ -69,6 +71,7 @@ export const createAccountInputs = [
     xs: 12,
     sm: 6,
     id: 'cpf',
+    mask: cpf,
     name: 'cpf',
     label: 'CPF',
     helperText: <ErrorMessage name="cpf" />
