@@ -3,8 +3,7 @@ import {
   InputTextModule,
   DropdownModule,
   InputDateModule,
-  InputCheckModule,
-  InputPhoneModule
+  InputCheckModule
 } from '../../lib/ui';
 
 import { RenderCompProps } from '../../types/interface';
@@ -21,7 +20,7 @@ export const useInputRender = (props: RenderCompProps) => {
         return <InputTextModule {...compProps} />;
 
       case 'phone' || 'telephone':
-        return <InputPhoneModule {...compProps} />;
+        return <InputTextModule {...compProps} />;
 
       case 'date':
         return <InputDateModule {...compProps} />;
