@@ -1,4 +1,5 @@
 import { GridProps, SxProps, Theme, TypographyProps } from '@mui/material';
+import { ChangeEvent } from 'react';
 
 export interface InputArticles {
   xs: number | undefined;
@@ -6,6 +7,7 @@ export interface InputArticles {
   id: string;
   name: string;
   label: string;
+  mask?: (e: ChangeEvent<HTMLInputElement>) => string;
   type: 'text' | 'checkbox' | 'select' | 'date' | 'dropdown';
   options?: string[];
 }

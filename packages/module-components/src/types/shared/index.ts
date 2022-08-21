@@ -1,4 +1,5 @@
 import { TextFieldProps } from '@mui/material';
+import { ChangeEvent } from 'react';
 import { ReactFC } from '../interface';
 
 export interface InputArticles {
@@ -7,6 +8,7 @@ export interface InputArticles {
   id: string;
   name: string;
   label: string;
+  mask?: (e: ChangeEvent<HTMLInputElement>) => string;
   legend?: string;
   type: 'text' | 'checkbox' | 'select' | 'date' | 'dropdown';
   options?: string[];
