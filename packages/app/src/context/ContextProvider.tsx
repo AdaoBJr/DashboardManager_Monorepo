@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Box, useMediaQuery } from '@mui/material';
 import { ThemeProvider } from '@emotion/react';
+import { ReactFC } from '@dash/module-domain';
 
 import { darkTheme, lightTheme } from 'theme';
-import { ReactFC } from 'types/interface';
 import store, { THEME, WINDOW } from './store';
 
 export const ContextProvider: React.FC<ReactFC> = ({ children }) => {

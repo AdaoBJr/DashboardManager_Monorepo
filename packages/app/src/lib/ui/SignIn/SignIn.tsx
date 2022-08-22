@@ -1,12 +1,12 @@
 import React from 'react';
 import { Formik } from 'formik';
 import { Button, Grid } from '@mui/material';
+import { ReactFC } from '@dash/module-domain';
 import { SignInModule } from '@dash/module-customer';
 import { AnimationModule } from '@dash/module-components';
 
 import { Header } from 'lib/shared';
 import { PaperForm } from './styles';
-import { ReactFC } from 'types/interface';
 import { useSignIn } from 'services/talons';
 import { GridContainer, PaperFormWrapper, Form } from 'lib/shared/__styles__';
 
