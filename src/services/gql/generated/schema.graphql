@@ -1,0 +1,280 @@
+schema {
+  query: query_root
+  mutation: mutation_root
+}
+
+"""whether this query should be cached (Hasura Cloud only)"""
+directive @cached(
+  """measured in seconds"""
+  ttl: Int! = 60
+
+  """refresh the cache entry"""
+  refresh: Boolean! = false
+) on QUERY
+
+type CreatedCustomer {
+  customer: Customer!
+  token: String!
+}
+
+type CreatedCustomerAddress {
+  customer: CustomerAddress!
+  token: String!
+}
+
+type CreatedProduct {
+  products: Product!
+  token: String!
+}
+
+type CreatedTokenCustomer {
+  token: String!
+}
+
+type CreatedWishlist {
+  count: Int
+  items: [Wish!]!
+  token: String!
+}
+
+type Customer {
+  address: [CustomerAddress!]!
+  avatarImage: String
+  cpf: String!
+  dateOfBirth: String!
+  email: String!
+  firstname: String!
+  gender: Int!
+  id: ID!
+  lastname: String!
+  password: String!
+  subscribe: Boolean!
+  telephone: String!
+  tokens: CustomerTokens
+  wishlist: CustomerWishlist
+}
+
+type CustomerAddress {
+  CEP: String!
+  bairro: String!
+  cidade: String!
+  defaultBilling: Boolean!
+  defaultShipping: Boolean!
+  email: String!
+  estado: String!
+  id: ID
+  pais: String!
+  rua: String!
+  userId: ID!
+}
+
+input CustomerAddressInput {
+  CEP: String!
+  bairro: String!
+  cidade: String!
+  defaultBilling: Boolean!
+  defaultShipping: Boolean!
+  estado: String!
+  pais: String!
+  rua: String!
+}
+
+input CustomerAddressUpdateInput {
+  CEP: String
+  bairro: String
+  cidade: String
+  defaultBilling: Boolean
+  defaultShipping: Boolean
+  estado: String
+  pais: String
+  rua: String
+}
+
+input CustomerInput {
+  avatarImage: String
+  cpf: String!
+  dateOfBirth: String!
+  email: String!
+  firstname: String!
+  gender: Int!
+  lastname: String!
+  password: String!
+  subscribe: Boolean
+  telephone: String!
+}
+
+input CustomerSignInInput {
+  email: String!
+  password: String!
+}
+
+type CustomerSubscribed {
+  subscribed: Boolean!
+}
+
+type CustomerTokens {
+  items: [String!]!
+}
+
+type CustomerUnsubscribed {
+  unsubscribed: Boolean!
+}
+
+input CustomerUpdateInput {
+  cpf: String
+  date_of_birth: String
+  email: String
+  firstname: String
+  gender: Int
+  lastname: String
+  password: String
+  subscribe: Boolean
+  telephone: String
+}
+
+type CustomerWishlist {
+  count: Int
+  items: [Wish!]!
+  userId: String
+}
+
+input CustomerWishlistInput {
+  quantity: Int!
+  sku: String!
+}
+
+type DeletedCustomer {
+  delete: Boolean!
+}
+
+type PriceRange {
+  maxPrice: PriceValue
+  minPrice: PriceValue
+}
+
+type PriceValue {
+  currency: String!
+  value: Int!
+}
+
+type Product {
+  description: String!
+  name: String!
+  priceRange: PriceRange!
+  sku: String!
+}
+
+input ProductInput {
+  currency: String!
+  description: String!
+  maxPrice: Int!
+  minPrice: Int!
+  name: String!
+  sku: String!
+}
+
+type ProductWishlist {
+  description: String!
+  name: String!
+}
+
+type RemovedWishlist {
+  items: [Wish!]!
+  token: String!
+}
+
+type RequestedEmail {
+  requested: Boolean!
+}
+
+input ResetEmailInput {
+  newEmail: String!
+  userId: String!
+}
+
+input ResetPwdInput {
+  newPassword: String!
+  userId: String!
+}
+
+type ResetedEmail {
+  newEmail: Boolean!
+}
+
+type ResetedPassword {
+  newPassword: Boolean!
+}
+
+input SendEmailInput {
+  email: String!
+  firstname: String!
+}
+
+type SignOutCustomer {
+  signOut: Boolean!
+}
+
+type UpdatedAvatar {
+  token: String!
+  updated: Boolean!
+}
+
+type UploadedAvatar {
+  token: String!
+  uploaded: Boolean!
+}
+
+type Wish {
+  error: String
+  product: ProductWishlist
+  quantity: Int!
+  sku: String!
+}
+
+type Wishlist {
+  count: String!
+  items: [Wish!]!
+  token: String!
+}
+
+"""mutation root"""
+type mutation_root {
+  addProductsToWishlist(data: [CustomerWishlistInput!]!): CreatedWishlist!
+  createCustomer(data: CustomerInput!): CreatedCustomer!
+  createCustomerAddress(data: CustomerAddressInput!): CreatedCustomerAddress!
+  createProduct(data: ProductInput!): CreatedProduct!
+  deleteCustomer(email: String!): DeletedCustomer!
+  deleteCustomerAddress(ID: ID!): DeletedCustomer!
+  removeProductsToWishlist(data: [CustomerWishlistInput!]!): RemovedWishlist!
+  requestResetEmail(email: String!): RequestedEmail!
+  requestResetPwd(email: String!): RequestedEmail!
+  resetEmail(data: ResetEmailInput!): ResetedEmail!
+  resetPassword(data: ResetPwdInput!): ResetedPassword!
+
+  """GoShirts_SendEmail"""
+  sendChangeMail(data: SendEmailInput!): RequestedEmail!
+
+  """GoShirts_SendEmail"""
+  sendEmailWelcomeNewsletter(email: String!): CustomerSubscribed!
+
+  """GoShirts_SendEmail"""
+  sendMailForgotPwd(data: SendEmailInput!): RequestedEmail!
+  signInCustomer(data: CustomerSignInInput!): CreatedTokenCustomer!
+  signOutCustomer: SignOutCustomer!
+  subscribeNewsletter(email: String!): CustomerSubscribed!
+  unsubscribeNewsletter(email: String!): CustomerUnsubscribed!
+  updateAvatarImage(file: String!): UpdatedAvatar!
+  updateCustomer(data: CustomerUpdateInput!): CreatedCustomer!
+  updateCustomerAddress(data: CustomerAddressUpdateInput!): CreatedCustomerAddress!
+
+  """GoShirts_UploadFile"""
+  uploadAvatarImage(file: String!): UploadedAvatar!
+}
+
+type query_root {
+  customerInfo: CreatedCustomer!
+  customerList: [Customer!]!
+  customerWishList: [CustomerWishlist!]!
+  productList: [Product!]!
+  wishlist: Wishlist!
+}

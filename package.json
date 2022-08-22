@@ -2,12 +2,14 @@
   "name": "@dash/root",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "src/*"
   ],
   "scripts": {
-    "dev": "lerna exec --scope @dash/app yarn dev",
-    "start": "lerna exec --scope @dash/app yarn start",
-    "build": "lerna exec --scope @dash/app yarn build"
+    "dev": "craco start",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test"
   },
   "dependencies": {
     "@emotion/react": "^11.9.0",
@@ -47,5 +49,17 @@
     "lerna": "^4.0.0",
     "miragejs": "^0.1.45",
     "typescript": "^4.7.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

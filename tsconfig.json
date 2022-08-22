@@ -1,12 +1,32 @@
 {
-  "extends": "./tsconfig.build.json",
   "compilerOptions": {
-    "baseUrl": "./packages",
+    "module": "commonjs",
+    "target": "es5",
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+    "noEmitOnError": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "types": [],
+    "jsx": "react-jsx",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "strict": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
     "noEmit": true,
+    "baseUrl": "./src",
     "paths": {
-      "@/services/*": ["module-components/src/services/*"],
-      "@/types/*": ["module-components/src/types/*"]
+      "@/types-comp/*": ["../packages/module-components/src/types/*"],
+      "@/services-comp/*": ["../packages/module-components/src/services/*"],
+      "@/types-customer/*": ["../packages/module-components/src/types/*"],
+      "@/services-customer/*": ["../packages/module-components/src/services/*"]
     }
   },
-  "include": ["packages"]
+  "include": ["src"]
 }
