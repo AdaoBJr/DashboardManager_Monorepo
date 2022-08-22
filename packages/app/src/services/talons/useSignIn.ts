@@ -6,7 +6,7 @@ import { FormikConfig, FormikHelpers } from 'formik';
 import { AnimationModuleProps } from '@dash/module-components';
 
 import { useAppContext } from 'context';
-import { form } from 'services/validation';
+import { form } from 'services/utils/validation';
 import { SignInDomain } from 'types/domain';
 import { valuesLoginInittial } from 'types/shared';
 import { SubmitButton } from 'lib/shared/__styles__';

@@ -6,7 +6,7 @@ import { CreateAccountProps } from '@dash/module-customer';
 import { AnimationModuleProps } from '@dash/module-components';
 
 import { useAppContext } from 'context';
-import { form } from 'services/validation';
+import { form } from 'services/utils/validation';
 import { CreateAccountDomain } from 'types/domain';
 import { SubmitButton } from 'lib/shared/__styles__';
 import { valuesRegisterInittial } from 'types/shared';
