@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import Lottie from 'react-lottie';
-import { AnimationModuleProps } from '@/types-comp/interface';
+import { AnimationModuleProps } from '../../../types/interface';
 
 export const AnimationModule: React.FC<AnimationModuleProps> = props => {
   const settings = useMemo(
