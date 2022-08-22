@@ -1,5 +1,5 @@
-import React, { ChangeEvent, useCallback, useMemo } from 'react';
-import { Field, useField, useFormikContext } from 'formik';
+import React from 'react';
+import { Field } from 'formik';
 import {
   Checkbox,
   FormControl,
@@ -9,44 +9,19 @@ import {
 } from '@mui/material';
 
 import { InputCheckModuleProps } from '../../../types/interface';
-
-interface configFormControl {
-  error?: boolean;
-}
+import { useInputCheck } from '../../../services/talons';
 
 export const InputCheckModule: React.FC<InputCheckModuleProps> = props => {
-  const { data } = props;
-  const [field, meta] = useField(data.name);
-  const { setFieldValue } = useFormikContext();
-
-  const handleChange = useCallback(
-    ({ target: { checked } }: ChangeEvent<HTMLInputElement>) =>
-      setFieldValue(data.name, checked),
-    [data.name, setFieldValue]
-  );
-
-  const inputCheckProps = useMemo(
-    () => ({
-      ...field,
-      ...data,
-      onChange: handleChange
-    }),
-    [props]
-  );
-
-  const configFormControl: configFormControl = {};
-  if (meta && meta.touched && meta.error) {
-    configFormControl.error = true;
-  }
+  const { inputCheckProps, configFormControl } = useInputCheck(props);
 
   return (
     <FormControl {...configFormControl}>
-      <FormLabel component="legend">{data?.legend}</FormLabel>
+      <FormLabel component="legend">{props.data?.legend}</FormLabel>
       <FormGroup>
         <Field
           as={FormControlLabel}
           control={<Checkbox {...inputCheckProps} />}
-          label={data.label}
+          label={props.data.label}
         />
       </FormGroup>
     </FormControl>
