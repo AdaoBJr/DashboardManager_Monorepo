@@ -1,6 +1,7 @@
 import { GridProps, TextFieldProps } from '@mui/material';
-import { InputArticles, TitleArticles } from '../../shared';
-import { ReactFC } from '../React';
+import { InputArticles, ReactFC } from '@dash/module-domain';
+
+import { TitleArticles } from '../../shared';
 
 export interface CreateAccountProps extends ReactFC {
   title?: TitleArticles;

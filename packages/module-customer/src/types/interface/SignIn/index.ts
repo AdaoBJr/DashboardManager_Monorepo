@@ -1,6 +1,7 @@
-import { ReactFC } from '../React';
 import { GridProps, TextFieldProps } from '@mui/material';
-import { InputArticles, TitleArticles } from '../../shared';
+import { InputArticles, ReactFC } from '@dash/module-domain';
+
+import { TitleArticles } from '../../shared';
 
 export interface SignInProps extends ReactFC {
   title?: TitleArticles;
