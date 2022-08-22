@@ -1,4 +1,4 @@
-import { ComponentsModule } from '../../shared';
+import { ComponentsModule } from '@dash/module-domain';
 
 export interface RenderCompProps {
   type: string;
