@@ -1,6 +1,6 @@
 import React from 'react';
 import { CardMedia } from '@mui/material';
-import { ImageProps } from 'types/interface';
+import { ImageProps } from '../../../types/interface';
 
 export const Image: React.FC<ImageProps> = props => {
   return (
