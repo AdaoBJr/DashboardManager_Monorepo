@@ -1,5 +1,4 @@
 import { api, apiRest } from 'services/infra';
-import { CreateAccountDomain } from 'types/domain';
 import { Auth, Gql } from 'types/interface';
 
 interface GraphQLProps {
