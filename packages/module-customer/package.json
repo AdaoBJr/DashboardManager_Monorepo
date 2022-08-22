@@ -4,6 +4,7 @@
   "main": "index.ts",
   "license": "MIT",
   "dependencies": {
+    "@dash/module-domain": "^0.0.1",
     "@dash/module-components": "^0.0.1"
   }
 }
