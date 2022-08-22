@@ -4,6 +4,7 @@ const { getLoader, loaderByName } = require('@craco/craco');
 const packages = [];
 packages.push(path.join(__dirname, '..', 'module-customer'));
 packages.push(path.join(__dirname, '..', 'module-components'));
+packages.push(path.join(__dirname, '..', 'module-domain'));
 
 module.exports = {
   webpack: {
