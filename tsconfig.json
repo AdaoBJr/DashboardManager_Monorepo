@@ -20,13 +20,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "baseUrl": "./src",
-    "paths": {
-      "@/types-comp/*": ["../packages/module-components/src/types/*"],
-      "@/services-comp/*": ["../packages/module-components/src/services/*"],
-      "@/types-customer/*": ["../packages/module-components/src/types/*"],
-      "@/services-customer/*": ["../packages/module-components/src/services/*"]
-    }
+    "baseUrl": "./src"
   },
   "include": ["src"]
 }
