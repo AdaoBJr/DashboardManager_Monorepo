@@ -1,2 +1,3 @@
 export * from './useInputRender';
-export * from './useTextInput';
+export * from './useInputText';
+export * from './useTextCheck';

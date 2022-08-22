@@ -1,8 +1,8 @@
 import { ChangeEvent, useCallback, useMemo } from 'react';
 import { useFormikContext } from 'formik';
-import { useInputTextModuleProps } from '../../types/interface';
+import { UseInputTextModuleProps } from '../../types/interface';
 
-export const useTextInput = (props: useInputTextModuleProps) => {
+export const useInputText = (props: UseInputTextModuleProps) => {
   const { setFieldValue } = useFormikContext();
 
   const handleChange = useCallback(
