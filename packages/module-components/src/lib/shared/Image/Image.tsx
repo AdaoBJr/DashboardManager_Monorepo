@@ -1,7 +1,6 @@
 import React from 'react';
+import { ReactFC } from '@dash/module-domain';
 import { CardMedia, SxProps, Theme } from '@mui/material';
-
-import { ReactFC } from 'types/interface';
 
 interface ImageProps extends ReactFC {
   src: string;

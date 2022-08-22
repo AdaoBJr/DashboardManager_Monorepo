@@ -1,6 +1,6 @@
+import { ReactFC } from '@dash/module-domain';
 import { TextFieldProps } from '@mui/material';
 import { ChangeEvent } from 'react';
-import { ReactFC } from '../interface';
 
 export interface InputArticles {
   xs: number | undefined;

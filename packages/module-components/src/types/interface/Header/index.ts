@@ -1,6 +1,6 @@
+import { ReactFC } from '@dash/module-domain';
 import { SxProps, Theme } from '@mui/material';
 
-import { ReactFC } from '../React';
 interface LinkDetail {
   name: string;
   url: string;

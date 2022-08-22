@@ -1,4 +1,3 @@
-export * from './React';
 export * from './Header';
 export * from './Animation';
 export * from './InputRender';
