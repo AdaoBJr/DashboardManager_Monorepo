@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useMutation } from 'react-query';
+import { SignInDomain } from '@dash/module-domain';
 
 import { queryRequest } from 'services/utils';
-import { SignInDomain } from 'types/domain';
 import { SignInProps } from 'types/interface';
 import { signInCustomerGQL } from 'services/gql/customer';
 

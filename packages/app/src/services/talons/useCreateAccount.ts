@@ -2,12 +2,12 @@ import { useEffect, useMemo, useState } from 'react';
 import * as yup from 'yup';
 import { ButtonProps } from '@mui/material';
 import { FormikConfig, FormikHelpers } from 'formik';
+import { CreateAccountDomain } from '@dash/module-domain';
 import { CreateAccountProps } from '@dash/module-customer';
 import { AnimationModuleProps } from '@dash/module-components';
 
 import { useAppContext } from 'context';
 import { form } from 'services/utils/validation';
-import { CreateAccountDomain } from 'types/domain';
 import { SubmitButton } from 'lib/shared/__styles__';
 import { valuesRegisterInittial } from 'types/shared';
 // import { useCreateCustomer } from 'services/infra/requests';

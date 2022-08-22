@@ -1,13 +1,13 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import * as yup from 'yup';
 import { ButtonProps } from '@mui/material';
+import { SignInDomain } from '@dash/module-domain';
 import { SignInProps } from '@dash/module-customer';
 import { FormikConfig, FormikHelpers } from 'formik';
 import { AnimationModuleProps } from '@dash/module-components';
 
 import { useAppContext } from 'context';
 import { form } from 'services/utils/validation';
-import { SignInDomain } from 'types/domain';
 import { valuesLoginInittial } from 'types/shared';
 import { SubmitButton } from 'lib/shared/__styles__';
 import { signInInputs, signInTitle } from 'articles';

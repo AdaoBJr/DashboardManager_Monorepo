@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useMutation } from 'react-query';
+import { CreateAccountDomain } from '@dash/module-domain';
 
 import { queryRequest } from 'services/utils';
-import { CreateAccountDomain } from 'types/domain';
 import { CreateCustomerProps } from 'types/interface';
 import { createCustomerGQL } from 'services/gql/customer';
 
