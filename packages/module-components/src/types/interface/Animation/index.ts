@@ -6,3 +6,5 @@ export interface AnimationModuleProps {
   height?: number | string;
   style?: CSSProperties;
 }
+
+export interface UseAnimationModuleProps extends AnimationModuleProps {}
