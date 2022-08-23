@@ -1,26 +1,11 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import Lottie from 'react-lottie';
+
+import { useAnimation } from '../../../services/talons';
 import { AnimationModuleProps } from '../../../types/interface';
 
 export const AnimationModule: React.FC<AnimationModuleProps> = props => {
-  const settings = useMemo(
-    () => ({
-      loop: true,
-      autoplay: true,
-      animationData: props.animation.default,
-      rendererSettings: {
-        preserveAspectRatio: 'xMidYMid slice'
-      }
-    }),
-    [props.animation]
-  );
+  const { animationProps } = useAnimation(props);
 
-  return (
-    <Lottie
-      options={settings}
-      width={props?.width || props?.height || 460}
-      height={props?.height || props?.width || 460}
-      style={{ ...props?.style }}
-    />
-  );
+  return <Lottie {...animationProps} />;
 };
