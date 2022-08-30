@@ -7,6 +7,9 @@ const dark = {
   palette: {
     ...themeConfig.palette,
     mode: 'dark' as 'light' | 'dark',
+    text: {
+      secondary: '#fafafb'
+    },
     background: {
       default: '#2d2d2d',
       paper: '#202020'
