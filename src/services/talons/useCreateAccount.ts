@@ -4,7 +4,7 @@ import { ButtonProps } from '@mui/material';
 import { FormikConfig, FormikHelpers } from 'formik';
 import { CreateAccountDomain } from '@dash/module-domain';
 import { CreateAccountProps } from '@dash/module-customer';
-import { AnimationModuleProps } from '@dash/module-components';
+import { AnimationModuleProps, AvatarModuleProps } from '@dash/module-components';
 
 import { useAppContext } from 'context';
 import { form } from 'services/utils/validation';
@@ -14,6 +14,7 @@ import { valuesRegisterInittial } from 'types/shared';
 import * as animation from 'assets/animations/register.json';
 import { createAccountInputs, createAccountTitle } from 'articles';
 import { CreateAccountInputs, CreateAccountTitle } from 'lib/ui/CreateAccount/styles';
+// import img_profile from '../../assets/images/profile.jpg';
 
 export const useCreateAccount = () => {
   const { windowSize } = useAppContext();
@@ -74,7 +75,15 @@ export const useCreateAccount = () => {
         width: windowSize?.smDown ? 345 : 500,
         height: windowSize?.smDown ? 345 : 445,
         style: { margin: windowSize?.smDown ? '7rem 0 0' : '13rem 0 0' }
-      } as AnimationModuleProps
+      } as AnimationModuleProps,
+      avatarProps: {
+        // src: img_profile,
+        alt: 'imagem do perfil',
+        sx: {
+          width: 100,
+          height: 100
+        }
+      } as AvatarModuleProps
     }),
     [handleSubmit, formValidation]
   );
