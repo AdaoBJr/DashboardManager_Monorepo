@@ -1,13 +1,11 @@
-import { Box, IconButton } from '@mui/material';
+import { CSSProperties } from 'react';
+import { Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-export const IconButtonContainer = styled(IconButton, {
-  name: 'Box',
-  slot: 'avatar_iconButton'
-})(({ theme }) => ({
+export const IconBtn: CSSProperties = {
   position: 'relative',
   margin: '5rem 0 -10rem 13rem'
-}));
+};
 
 export const BoxEditWrapper = styled(Box, {
   name: 'Box',
