@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Grid } from '@mui/material';
 import { ReactFC } from '@dash/module-domain';
-import { AnimationModule } from '@dash/module-components';
+import { AnimationModule, AvatarModule } from '@dash/module-components';
 import { CreateAccountModule } from '@dash/module-customer';
 
 import { Formik } from 'formik';
@@ -17,6 +17,7 @@ export const CreateAccount: React.FC<ReactFC> = () => {
       formikProps,
       createAccountModuleProps,
       buttonProps,
+      avatarProps,
       animationProps
     }
   } = useCreateAccount();
@@ -37,6 +38,7 @@ export const CreateAccount: React.FC<ReactFC> = () => {
         </PaperFormWrapper>
       </Grid>
       <Grid item md={6}>
+        <AvatarModule {...avatarProps} />
         <AnimationModule {...animationProps} />
       </Grid>
     </GridContainer>
