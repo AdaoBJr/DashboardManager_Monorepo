@@ -11,3 +11,4 @@ export * from './InputPhone';
 export * from './Dropdown';
 export * from './InputDate';
 export * from './InputCheck';
+export * from './InputFile';
