@@ -7,7 +7,7 @@ const Router = () => (
     <Route path="/" element={<p>Rota Inicial</p>} />
     <Route path="/create-account" element={<CreateAccount />} />
     <Route path="/login" element={<SignIn />} />
-    <Route path="/nfs-upload" element={<DocsUpload />} />
+    <Route path="/upload-nfs" element={<DocsUpload />} />
   </Routes>
 );
 
