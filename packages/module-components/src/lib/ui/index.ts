@@ -5,3 +5,4 @@ export * from './InputText';
 export * from './InputDate';
 export * from './InputCheck';
 export * from './Dropdown';
+export * from './ButtonUpload';

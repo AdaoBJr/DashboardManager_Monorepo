@@ -3,6 +3,7 @@ export * from './Avatar';
 export * from './Header';
 export * from './Title';
 export * from './Body';
+export * from './ButtonUpload';
 export * from './Animation';
 export * from './InputRender';
 export * from './InputText';
