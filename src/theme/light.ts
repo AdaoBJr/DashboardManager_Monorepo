@@ -68,7 +68,12 @@ export const themeConfig = {
       styleOverrides: {
         root: {
           borderRadius: 6,
-          letterSpacing: '1px'
+          padding: '6px 16px',
+          fontWeight: 600,
+          fontSize: '.875rem',
+          lineHeight: '20px',
+          letterSpacing: '.75px',
+          textTransform: 'initial'
         }
       }
     },
