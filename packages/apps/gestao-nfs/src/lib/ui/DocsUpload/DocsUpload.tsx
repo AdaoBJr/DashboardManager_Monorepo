@@ -1,11 +1,17 @@
 import React from 'react';
-import { Button, Grid, Paper } from '@mui/material';
+import { Box, Button, Grid, Input, InputLabel, Paper, TextField } from '@mui/material';
+import { FileUploadOutlined } from '@mui/icons-material';
 import { Title, Body } from '@dash/module-components';
 
 export const DocsUpload: React.FC = () => {
   return (
-    <Grid container padding="1.5rem 2rem">
-      <Paper sx={{ display: 'grid', gap: '1rem' }}>
+    <Grid
+      container
+      padding="1.5rem 2rem"
+      m="0 auto"
+      maxWidth={({ breakpoints: b }) => b.values.md}
+    >
+      <Paper sx={{ width: '100%' }}>
         <Grid container>
           <Grid item xs={6} sm={4}>
             <Title
@@ -26,8 +32,16 @@ export const DocsUpload: React.FC = () => {
           </Grid>
           <Grid item xs={12} sm={4} sx={{ mt: { xs: '1.625rem', sm: 0 } }}>
             <Title muiProps={{ variant: 'h6' }} compProps={{ text: 'AÇÕES' }} />
-            <Button variant="outlined" fullWidth sx={{ mt: '10px' }}>
-              Enviar Arquivo
+            <Button
+              variant="contained"
+              fullWidth
+              sx={{ mt: '10px' }}
+              startIcon={<FileUploadOutlined />}
+            >
+              <label style={{ cursor: 'pointer' }}>
+                Enviar Arquivo
+                <input id="btn_file" type="file" hidden />
+              </label>
             </Button>
           </Grid>
         </Grid>
