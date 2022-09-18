@@ -1,5 +1,10 @@
-import { createTheme } from '@mui/material';
+import { createTheme, ThemeOptions } from '@mui/material';
 import { ptBR } from '@mui/material/locale';
+
+const { shadows: customShadows } = createTheme();
+customShadows[1] = `0px 2px 4px rgba(0, 0, 0, 0.14),
+  0px 3px 4px rgba(0, 0, 0, 0.12),
+  0px 1px 5px rgba(0, 0, 0, 0.2)`;
 
 export const themeConfig = {
   spacing: 16,
@@ -54,6 +59,7 @@ export const themeConfig = {
       fontSize: '1rem'
     }
   },
+  shadows: [...customShadows],
   shape: {
     borderRadius: 8
   },
@@ -72,8 +78,15 @@ export const themeConfig = {
           letterSpacing: '1px'
         }
       }
+    },
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          padding: '1rem 1.5rem'
+        }
+      }
     }
   }
-};
+} as ThemeOptions;
 
 export const lightTheme = createTheme(themeConfig, ptBR);
