@@ -34,7 +34,7 @@ export const DocsUpload: React.FC = () => {
             <Title muiProps={{ variant: 'h6' }} compProps={{ text: 'AÇÕES' }} />
             <ButtonUpload
               muiProps={{
-                sx: { mt: '10px' },
+                sx: { mt: '10px', fontSize: '14px' },
                 startIcon: <FileUploadOutlined />
               }}
             />
