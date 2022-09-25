@@ -11,9 +11,9 @@ export const useInputFile = (props: UseInputFileProps) => {
     }
     const file = e.target.files[0];
     const reader = new FileReader();
-    reader.onload = e =>
-      loadedFile && e.target?.result && loadedFile(e.target?.result as string);
     reader.readAsDataURL(file);
+    reader.onload = e =>
+      loadedFile && e.target?.result && loadedFile(file, e.target?.result);
   }, []);
 
   return { handleUploadFile };

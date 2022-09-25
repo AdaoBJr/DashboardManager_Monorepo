@@ -3,7 +3,7 @@ import { InputLabelProps } from '@mui/material';
 import { ReactFC } from '../../shared';
 
 interface InputFile {
-  loadedFile: (file: string) => void;
+  loadedFile: (file: File, file64: string | ArrayBuffer) => void;
 }
 
 export interface InputFileProps extends ReactFC {
@@ -15,5 +15,5 @@ export interface InputFileProps extends ReactFC {
 }
 
 export interface UseInputFileProps {
-  loadedFile: (file: string) => void;
+  loadedFile: (file: File, file64: string | ArrayBuffer) => void;
 }

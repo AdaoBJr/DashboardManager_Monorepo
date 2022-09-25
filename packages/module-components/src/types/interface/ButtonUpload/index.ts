@@ -8,6 +8,7 @@ interface ButtonUpload {
   width?: string;
   startIconCSS?: SxProps<Theme>;
   endIconCSS?: SxProps<Theme>;
+  loadedFile?: (file: File, file64: string | ArrayBuffer) => void;
 }
 
 export interface ButtonUploadProps extends ButtonComponent {

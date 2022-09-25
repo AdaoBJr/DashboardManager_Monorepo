@@ -5,9 +5,9 @@ import { InputFile } from '../../shared';
 import { ButtonUploadProps } from '../../../types/interface';
 
 export const ButtonUpload: React.FC<ButtonUploadProps> = props => {
-  const loadedFile = (file: string) => {
-    console.log('file', file);
-  };
+  const loadedFile = (file: File, file64: string | ArrayBuffer) =>
+    props.compProps?.loadedFile && props.compProps?.loadedFile(file, file64);
+
   return (
     <Button
       variant={props.muiProps.variant || 'contained'}

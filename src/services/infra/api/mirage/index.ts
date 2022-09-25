@@ -76,6 +76,10 @@ export const makeServer = () => {
         return schema.db.dump();
       });
 
+      this.get('/contrato/12345', schema => {
+        return schema.find('documents', '1')?.attrs!;
+      });
+
       this.post('/documento/:id', (_, request) => {
         const id = request.params.id;
         const req = JSON.parse(request.requestBody);
@@ -87,6 +91,7 @@ export const makeServer = () => {
                   ...doc,
                   status: 'concluído',
                   documento: {
+                    arq_base64: req.arquivo,
                     arquivo: mock_url_file,
                     nome: req.nome,
                     id_gad: randomId() // esse id deverá ser do GAD

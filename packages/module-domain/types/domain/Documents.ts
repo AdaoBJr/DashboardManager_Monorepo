@@ -8,6 +8,7 @@ interface DetalhesArquivo {
   id_gad: string | null;
   nome: string | null;
   arquivo: string | null;
+  arq_base: string | null;
 }
 
 export interface DetalhesDocumento {

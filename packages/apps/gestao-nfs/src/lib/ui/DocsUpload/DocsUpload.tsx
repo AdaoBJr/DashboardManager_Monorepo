@@ -2,10 +2,13 @@ import React, { useCallback, useState } from 'react';
 import { Button, Grid, Paper } from '@mui/material';
 import { FileUploadOutlined } from '@mui/icons-material';
 import { Title, Body, ButtonUpload } from '@dash/module-components';
+import { useDocsUpload } from '../../../services/talons';
 
 const redirectUrl =
   'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf';
 export const DocsUpload: React.FC = () => {
+  const { handleLoadFile } = useDocsUpload();
+
   const [status, setStatus] = useState(false);
 
   const handleViewFile = useCallback(() => {
@@ -55,6 +58,7 @@ export const DocsUpload: React.FC = () => {
                 sx: { mt: '10px', fontSize: '14px' },
                 startIcon: <FileUploadOutlined />
               }}
+              compProps={{ loadedFile: handleLoadFile }}
             />
             <Button onClick={() => setStatus(prev => !prev)}>Switch Status</Button>
           </Grid>
