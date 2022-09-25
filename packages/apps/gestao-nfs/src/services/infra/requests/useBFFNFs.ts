@@ -13,7 +13,7 @@ export const useBFFNFs = () => {
 
   const setUploadNF = useCallback(
     async (id_contract: string, data: { nome: string; arquivo: string }) =>
-      await api.post(`documento/${id_contract}`, data),
+      await api.post<ContratoDocumentos>(`documento/${id_contract}`, data),
     []
   );
 
