@@ -5,5 +5,5 @@ const env = getEnv();
 console.log('ENV', env);
 /* istanbul ignore next */
 export const api = axios.create({
-  baseURL: env.URL_BFF,
+  baseURL: env.URL_BFF_GO_DASH
 });
