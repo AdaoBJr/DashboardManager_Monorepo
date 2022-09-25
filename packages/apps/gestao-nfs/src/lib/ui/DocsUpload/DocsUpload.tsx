@@ -59,6 +59,7 @@ export const DocsUpload: React.FC = () => {
                 startIcon: <FileUploadOutlined />
               }}
               compProps={{ loadedFile: handleLoadFile }}
+              acceptedFile="application/pdf, image/*"
             />
             <Button onClick={() => setStatus(prev => !prev)}>Switch Status</Button>
           </Grid>

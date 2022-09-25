@@ -19,7 +19,12 @@ export const InputFile: React.FC<InputFileProps> = props => {
       }}
     >
       {props?.children || props?.text || 'Enviar arquivo'}
-      <input type="file" hidden onChange={handleUploadFile} />
+      <input
+        type="file"
+        accept={props?.acceptedFile}
+        hidden
+        onChange={handleUploadFile}
+      />
     </InputLabel>
   );
 };

@@ -12,6 +12,7 @@ export interface InputFileProps extends ReactFC {
   text?: string;
   muiProps?: InputLabelProps;
   compProps: InputFile;
+  acceptedFile?: string;
 }
 
 export interface UseInputFileProps {

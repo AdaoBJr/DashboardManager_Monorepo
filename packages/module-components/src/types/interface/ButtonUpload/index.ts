@@ -13,4 +13,5 @@ interface ButtonUpload {
 
 export interface ButtonUploadProps extends ButtonComponent {
   compProps?: ButtonUpload;
+  acceptedFile?: string;
 }

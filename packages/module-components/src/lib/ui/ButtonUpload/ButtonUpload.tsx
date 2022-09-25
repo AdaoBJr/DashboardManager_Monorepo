@@ -23,6 +23,7 @@ export const ButtonUpload: React.FC<ButtonUploadProps> = props => {
                 ...props.compProps?.startIconCSS
               }
             }}
+            acceptedFile={props.acceptedFile}
             compProps={{ loadedFile }}
           >
             {props.muiProps?.startIcon}
@@ -40,6 +41,7 @@ export const ButtonUpload: React.FC<ButtonUploadProps> = props => {
               }
             }}
             compProps={{ loadedFile }}
+            acceptedFile={props.acceptedFile}
           >
             {props.muiProps?.endIcon}
           </InputFile>
@@ -52,7 +54,7 @@ export const ButtonUpload: React.FC<ButtonUploadProps> = props => {
         width: props?.compProps?.width || '185px'
       }}
     >
-      <InputFile compProps={{ loadedFile }} />
+      <InputFile compProps={{ loadedFile }} acceptedFile={props.acceptedFile} />
     </Button>
   );
 };
