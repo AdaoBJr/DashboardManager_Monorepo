@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { useQuery, useMutation } from 'react-query';
 import { useParams } from 'react-router-dom';
 
@@ -13,6 +13,11 @@ export const useDocsUpload = () => {
       await setUploadNF(params.contractId!, data)
   );
 
+  const [active, setActive] = useState(false);
+
+  const handleOpen = useCallback(() => setActive(true), [setActive]);
+  const handleClose = useCallback(() => setActive(false), [setActive]);
+
   const res = useMemo(() => data?.data, [data]);
 
   const handleLoadFile = useCallback(async (file: File, file64: string | ArrayBuffer) => {
@@ -21,9 +26,10 @@ export const useDocsUpload = () => {
       console.log('Tamanho máximo permitido 5MB');
     } else {
       const data = { nome: file.name, arquivo: String(file64) };
+      handleOpen();
       mutate(data);
     }
   }, []);
 
-  return { res, handleLoadFile };
+  return { res, active, handleLoadFile, handleOpen, handleClose };
 };
