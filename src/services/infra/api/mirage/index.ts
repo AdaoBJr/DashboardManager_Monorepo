@@ -57,7 +57,7 @@ export const makeServer = () => {
 
     routes() {
       this.namespace = 'api';
-      this.timing = 750;
+      this.timing = 4000;
 
       this.get('/register');
       this.post('/register', (schema, request) => {

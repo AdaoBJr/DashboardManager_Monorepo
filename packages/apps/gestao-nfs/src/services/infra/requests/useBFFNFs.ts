@@ -1,4 +1,5 @@
 import { useCallback } from 'react';
+import { AxiosRequestConfig } from 'axios';
 import { ContratoDocumentos } from '@dash/module-domain';
 
 import { api } from '../api';
@@ -12,8 +13,11 @@ export const useBFFNFs = () => {
   );
 
   const setUploadNF = useCallback(
-    async (id_contract: string, data: { nome: string; arquivo: string }) =>
-      await api.post<ContratoDocumentos>(`documento/${id_contract}`, data),
+    async (
+      id_contract: string,
+      data: { nome: string; arquivo: string },
+      config?: AxiosRequestConfig
+    ) => await api.post<ContratoDocumentos>(`documento/${id_contract}`, data, config),
     []
   );
 

@@ -9,7 +9,7 @@ import { useDocsUpload } from '../../../services/talons';
 const redirectUrl =
   'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf';
 export const DocsUpload: React.FC = () => {
-  const { active, handleLoadFile, handleClose } = useDocsUpload();
+  const { active, handleLoadFile, handleClose, handleSubmitFile } = useDocsUpload();
 
   const [status, setStatus] = useState(false);
 
@@ -67,13 +67,7 @@ export const DocsUpload: React.FC = () => {
             <Modal open={active}>
               <Box sx={ModalText}>
                 <Body muiProps={{ variant: 'h3' }}>Testando Modal</Body>
-                <Button
-                  onClick={() => {
-                    console.log('Enviando...');
-                  }}
-                >
-                  Enviar
-                </Button>
+                <Button onClick={handleSubmitFile}>Enviar</Button>
                 <Button onClick={handleClose}>Cancelar</Button>
               </Box>
             </Modal>
