@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useQuery, useMutation } from 'react-query';
 import { useParams } from 'react-router-dom';
 
@@ -18,17 +18,24 @@ export const useDocsUpload = () => {
       await setUploadNF(params.contractId!, data, { onUploadProgress })
   );
 
-  const [percent, setPercent] = useState(0);
+  const [progress, setProgress] = useState(0);
   const [active, setActive] = useState(false);
   const [fileData, setFileData] = useState<FileData | null>(null);
 
   const handleOpen = useCallback(() => setActive(true), [setActive]);
-  const handleClose = useCallback(() => setActive(false), [setActive]);
+
+  const handleCancel = useCallback(() => setActive(false), [setActive]);
+
+  const handleClose = useCallback(() => {
+    if (progress === 100) {
+      setActive(false);
+      setProgress(0);
+    }
+  }, [setActive, progress]);
 
   function onUploadProgress({ loaded, total }: ProgressEvent) {
-    setPercent(Math.floor((loaded / total) * 100));
+    setProgress(Math.floor((loaded / total) * 100));
   }
-  console.log('percent', percent);
 
   const res = useMemo(() => data?.data, [data]);
 
@@ -43,10 +50,18 @@ export const useDocsUpload = () => {
     }
   }, []);
 
-  const handleSubmitFile = useCallback(() => {
-    mutate(fileData!);
-    handleClose();
-  }, [fileData]);
+  const handleSubmitFile = useCallback(() => mutate(fileData!), [fileData]);
 
-  return { res, active, handleLoadFile, handleOpen, handleClose, handleSubmitFile };
+  useEffect(handleClose, [progress]);
+
+  return {
+    res,
+    active,
+    progress,
+    handleOpen,
+    handleClose,
+    handleCancel,
+    handleLoadFile,
+    handleSubmitFile
+  };
 };

@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import { Box, Button, Grid, Modal, Paper } from '@mui/material';
+import { Box, Button, Grid, LinearProgress, Modal, Paper } from '@mui/material';
 import { FileUploadOutlined } from '@mui/icons-material';
 import { Title, Body, ButtonUpload } from '@dash/module-components';
 
@@ -9,7 +9,13 @@ import { useDocsUpload } from '../../../services/talons';
 const redirectUrl =
   'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf';
 export const DocsUpload: React.FC = () => {
-  const { active, handleLoadFile, handleClose, handleSubmitFile } = useDocsUpload();
+  const {
+    active,
+    progress,
+    handleCancel,
+    handleLoadFile,
+    handleSubmitFile
+  } = useDocsUpload();
 
   const [status, setStatus] = useState(false);
 
@@ -67,8 +73,9 @@ export const DocsUpload: React.FC = () => {
             <Modal open={active}>
               <Box sx={ModalText}>
                 <Body muiProps={{ variant: 'h3' }}>Testando Modal</Body>
+                <Button onClick={handleCancel}>Cancelar</Button>
                 <Button onClick={handleSubmitFile}>Enviar</Button>
-                <Button onClick={handleClose}>Cancelar</Button>
+                <LinearProgress variant="determinate" value={progress} />
               </Box>
             </Modal>
           </Grid>

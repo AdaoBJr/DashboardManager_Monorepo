@@ -90,6 +90,14 @@ export const themeConfig = {
           padding: '1rem 1.5rem'
         }
       }
+    },
+    MuiLinearProgress: {
+      styleOverrides: {
+        root: {
+          height: '6px',
+          borderRadius: 4
+        }
+      }
     }
   }
 } as ThemeOptions;
